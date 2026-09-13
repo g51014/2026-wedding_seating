@@ -1,6 +1,6 @@
 "use client"
 
-import { SEAT_COUNT, seatPoint } from "@/data/venue"
+import { DEFAULT_SEAT_COUNT, seatPoint } from "@/data/venue"
 
 export function SeatLegend() {
   const cx = 70
@@ -13,7 +13,7 @@ export function SeatLegend() {
           舞台方向
         </text>
         <polygon points="70,16 64,26 76,26" fill="#b45309" />
-        {Array.from({ length: SEAT_COUNT }, (_, i) => {
+        {Array.from({ length: DEFAULT_SEAT_COUNT }, (_, i) => {
           const seat = i + 1
           const p = seatPoint(cx, cy + 8, 42, seat)
           return (
@@ -46,7 +46,7 @@ export function SeatLegend() {
         </text>
       </svg>
       <p className="text-xs leading-relaxed text-[#92400e]">
-        紅點為 1 號位，對應場地圖二桌緣紅點；其餘座位順時針 2 至 10。
+        紅點為 1 號位；其餘順時針。主桌 12 席，其餘圓桌 10 席。綠點為素食。
       </p>
     </div>
   )

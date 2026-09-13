@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { TABLE_ORDER, tableById } from "@/data/venue"
+import { TABLE_ORDER, tableById, totalSeats } from "@/data/venue"
 import {
   downloadJson,
   guestsFromText,
@@ -62,19 +62,19 @@ export function WeddingApp() {
         <div className="mx-auto flex max-w-[1600px] flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="text-xs tracking-[0.3em] text-[#b45309]">
-              1004 · 江林府喜宴
+              2026/10/4 · 江林府喜宴
             </p>
             <h1 className="font-heading text-2xl font-semibold text-[#7c2d12] md:text-3xl">
               阿武喜宴場地桌次
             </h1>
             <p className="mt-1 max-w-xl text-sm text-[#92400e]">
-              依 Grand Ballroom I 場地重整。1 號位為近舞台左上紅點，其餘順時針排列。場地圖無 4 號桌。
+              男方確認版桌次已填入主桌與 1–3、5–11 桌。1 號位為近舞台左上紅點，順時針排列。第 10、11 桌待填；12–22 桌為場地空桌。
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="secondary" className="gap-1">
               <Users className="size-3.5" />
-              {filled} / 220 席已填
+              {filled} / {totalSeats()} 席已填
             </Badge>
             <Button variant="outline" size="sm" onClick={() => window.print()}>
               <Printer data-icon="inline-start" />
@@ -192,7 +192,7 @@ export function WeddingApp() {
                 )}
                 {!selected && (
                   <p className="rounded-xl border border-dashed border-amber-200 bg-[#fffaf3] p-4 text-sm text-[#92400e]">
-                    點選場中圓桌或上方桌號，即可查看 10 個座位並填入姓名。
+                    點選場中圓桌或上方桌號，即可查看該桌座位。
                   </p>
                 )}
               </aside>
@@ -201,7 +201,7 @@ export function WeddingApp() {
 
           <TabsContent value="roster" className="print:hidden">
             <div className="mb-4 rounded-xl border border-amber-200 bg-[#fffaf3] p-4 text-sm leading-relaxed text-[#7c2d12]">
-              完整場地桌次依 Grand Ballroom I 實體桌位排列，不沿用其他草稿桌號。每桌 1 號位固定為近舞台左上，順時針至 10 號。目前共 {TABLE_ORDER.length} 桌、220 席。
+              男方名單依確認版 Word 填入（主桌 12 人，第 1–3、5–9 桌已排，第 10、11 桌待填）。場地 12–22 桌尚未分配。1 號位為近舞台左上，順時針編號。
             </div>
             <RosterList
               guests={guests}

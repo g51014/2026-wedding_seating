@@ -2,11 +2,12 @@
 
 import { useCallback, useSyncExternalStore } from "react"
 
-import { emptyGuests, SEAT_COUNT, TABLE_ORDER, TABLES } from "@/data/venue"
+import { defaultGuests } from "@/data/guests"
+import { emptyGuests, TABLE_ORDER, tableById, TABLES } from "@/data/venue"
 
-const STORAGE_KEY = "awu-wedding-seating-v1"
+const STORAGE_KEY = "awu-wedding-seating-v2"
 const listeners = new Set<() => void>()
-const emptySnapshot = emptyGuests()
+const defaultSnapshot = defaultGuests()
 let memory: GuestMap | null = null
 
 export type GuestMap = Record<string, string[]>
@@ -18,7 +19,7 @@ export function normalizeGuests(raw: unknown): GuestMap {
   for (const table of TABLES) {
     const value = incoming[table.id]
     if (Array.isArray(value)) {
-      base[table.id] = Array.from({ length: SEAT_COUNT }, (_, i) =>
+      base[table.id] = Array.from({ length: table.seats }, (_, i) =>
         String(value[i] ?? "").trim()
       )
     }
@@ -27,12 +28,12 @@ export function normalizeGuests(raw: unknown): GuestMap {
 }
 
 function readStorage(): GuestMap {
-  if (typeof window === "undefined") return emptySnapshot
+  if (typeof window === "undefined") return defaultSnapshot
   try {
     const saved = window.localStorage.getItem(STORAGE_KEY)
-    return saved ? normalizeGuests(JSON.parse(saved)) : emptyGuests()
+    return saved ? normalizeGuests(JSON.parse(saved)) : defaultGuests()
   } catch {
-    return emptyGuests()
+    return defaultGuests()
   }
 }
 
@@ -59,7 +60,7 @@ function subscribe(listener: () => void) {
 }
 
 export function useGuests() {
-  const guests = useSyncExternalStore(subscribe, loadGuests, () => emptySnapshot)
+  const guests = useSyncExternalStore(subscribe, loadGuests, () => defaultSnapshot)
   const setGuests = useCallback((updater: GuestMap | ((prev: GuestMap) => GuestMap)) => {
     const current = loadGuests()
     const next = typeof updater === "function" ? updater(current) : updater
@@ -126,10 +127,12 @@ function parsePlainList(text: string): GuestMap | null {
       continue
     }
     if (!current) continue
+    const table = tableById(current)
+    const seats = table?.seats ?? guests[current].length
     const seatMatch = line.match(/^(\d+)\s*[號号位.\-、:：]?\s*(.*)$/)
     if (seatMatch) {
       const seat = Number(seatMatch[1])
-      if (seat >= 1 && seat <= SEAT_COUNT) {
+      if (seat >= 1 && seat <= seats) {
         guests[current][seat - 1] = seatMatch[2].trim()
         assigned += 1
       }

@@ -29,10 +29,14 @@ export function RosterList({ guests, onSelect }: RosterProps) {
                   {id === "head" ? "主桌" : `${table.label} 桌`}
                 </CardTitle>
                 <Badge variant="secondary" className="font-normal">
-                  {filled}/10
+                  {filled}/{table.seats}
                 </Badge>
               </div>
-              <p className="text-xs text-[#92400e]">{table.zone}</p>
+              <p className="text-xs text-[#92400e]">{table.title}</p>
+              <p className="text-xs text-muted-foreground">
+                {table.zone}
+                {table.diet ? ` · ${table.diet}` : ""}
+              </p>
             </CardHeader>
             <CardContent>
               <ol className="space-y-1 text-sm">
@@ -45,7 +49,15 @@ export function RosterList({ guests, onSelect }: RosterProps) {
                     >
                       {index + 1}號
                     </span>
-                    <span className={name ? "text-foreground" : "text-muted-foreground"}>
+                    <span
+                      className={
+                        name
+                          ? name.includes("素食")
+                            ? "text-green-800"
+                            : "text-foreground"
+                          : "text-muted-foreground"
+                      }
+                    >
                       {name || "空位"}
                     </span>
                   </li>

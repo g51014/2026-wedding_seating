@@ -6,7 +6,7 @@ import { LAYOUT, TABLES, type TableDef } from "@/data/venue"
 import { RoundTable } from "@/components/round-table"
 import type { GuestMap } from "@/lib/seating"
 
-const HIT_RADIUS = 54
+const HIT_RADIUS = 62
 
 type FloorPlanProps = {
   guests: GuestMap
@@ -81,7 +81,7 @@ export function FloorPlan({ guests, selectedId, matched, onSelect, idPrefix = "l
         1004 江林府喜宴 · The Grand Ballroom I
       </text>
       <text x={LAYOUT.width / 2} y={38} textAnchor="middle" fontSize="9" fill="#92400e">
-        寬 21.63 m　深 24.80 m　圓桌 22 桌（主桌 + 1–3、5–22）每桌 10 席
+        2026/10/4　主桌 12 席　其餘 10 席　男方已排主桌與 1–3、5–11 桌
       </text>
 
       <rect
