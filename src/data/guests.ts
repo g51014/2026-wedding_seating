@@ -1,6 +1,24 @@
 import { emptyGuests } from "@/data/venue"
 
-/** 男方確認版桌次（V2／1150828）。第 10、11 桌名單尚未填入。 */
+/**
+ * Word 確認版桌號 → 場地桌號。
+ * 面對舞台：左男右女。新郎好友兩桌在左側走道 13、14。
+ */
+export const WORD_TO_VENUE: Record<string, string> = {
+  head: "head",
+  "1": "12",
+  "2": "15",
+  "3": "16",
+  "5": "17",
+  "6": "19",
+  "7": "18",
+  "8": "20",
+  "9": "21",
+  "10": "13",
+  "11": "14",
+}
+
+/** 男方確認版桌次（V2／1150828）。鍵為 Word 原桌號；第 10、11 桌名單尚未填入。 */
 export const WORD_GUESTS: Record<string, string[]> = {
   head: [
     "江紀武（新郎）",
@@ -118,9 +136,10 @@ export const WORD_GUESTS: Record<string, string[]> = {
 
 export function defaultGuests() {
   const guests = emptyGuests()
-  for (const [id, names] of Object.entries(WORD_GUESTS)) {
-    if (!guests[id]) continue
-    guests[id] = guests[id].map((_, i) => names[i] ?? "")
+  for (const [wordId, names] of Object.entries(WORD_GUESTS)) {
+    const venueId = WORD_TO_VENUE[wordId] ?? wordId
+    if (!guests[venueId]) continue
+    guests[venueId] = guests[venueId].map((_, i) => names[i] ?? "")
   }
   return guests
 }

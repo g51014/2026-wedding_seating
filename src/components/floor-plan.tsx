@@ -81,7 +81,7 @@ export function FloorPlan({ guests, selectedId, matched, onSelect, idPrefix = "l
         1004 江林府喜宴 · The Grand Ballroom I
       </text>
       <text x={LAYOUT.width / 2} y={38} textAnchor="middle" fontSize="9" fill="#92400e">
-        2026/10/4　主桌 12 席　其餘 10 席　男方已排主桌與 1–3、5–11 桌
+        2026/10/4　面對舞台左男右女　新郎好友 13、14 桌　每椅標座號（紅點為 1 號）
       </text>
 
       <rect
@@ -165,6 +165,31 @@ export function FloorPlan({ guests, selectedId, matched, onSelect, idPrefix = "l
       </text>
       <text x="550" y="980" textAnchor="middle" fontSize="9" fill="#fff7ed" style={{ pointerEvents: "none" }}>
         寬 80 · 深 100
+      </text>
+
+      <text
+        x="250"
+        y="268"
+        textAnchor="middle"
+        fontSize="18"
+        fill="#7c2d12"
+        fontWeight="800"
+        opacity="0.42"
+        style={{ pointerEvents: "none" }}
+      >
+        男 方
+      </text>
+      <text
+        x="850"
+        y="268"
+        textAnchor="middle"
+        fontSize="18"
+        fill="#7c2d12"
+        fontWeight="800"
+        opacity="0.42"
+        style={{ pointerEvents: "none" }}
+      >
+        女 方
       </text>
 
       {["#fb7185", "#fbbf24", "#fb7185", "#fbbf24", "#fb7185"].map((color, i) => (

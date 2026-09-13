@@ -43,7 +43,7 @@
 <header>
   <div class="sub">2026／10／4 · 江林府 THE GRAND BALLROOM I</div>
   <h1>紀武結婚喜宴場地桌次</h1>
-  <p class="note">男方確認版（V2／1150828）已填入主桌與第 1–3、5–9 桌。紅點為 1 號位（近舞台左上），其餘順時針。主桌 12 席，其餘 10 席。第 10、11 桌待填；12–22 為場地空桌。點圓桌或桌號可看該桌名單。</p>
+  <p class="note">面對舞台：左男右女。新郎好友兩桌在左側走道 <b>13、14</b>。男方已排主桌與 12、15–21；13、14 待填名單。右側 1–3、5–11 留給女方。每椅標座號，紅點為 1 號位（近舞台左上），其餘順時針。主桌 12 席，其餘 10 席。</p>
   <p class="legend"><span class="dot" style="background:#e11d48"></span>1 號位<span class="dot" style="background:#7c2d12"></span>已入座<span class="dot" style="background:#15803d"></span>素食<span class="dot" style="background:#fff7ed;border:1px solid #b45309"></span>空位</p>
 </header>
 <div class="layout">
@@ -57,39 +57,41 @@
 const SEAT1 = -126;
 const TABLES = [
   {id:"head", label:"主桌", title:"新郎新娘長輩桌", seats:12, diet:"全部葷食", x:550, y:248, zone:"舞台前方 · 走道花廊"},
-  {id:"1", label:"1", title:"金門魏爺爺親友桌", seats:10, diet:"全部葷食", x:638, y:368, zone:"面向舞台右側 · 走道旁"},
-  {id:"2", label:"2", title:"江家長輩親友桌", seats:10, diet:"全部葷食", x:638, y:512, zone:"面向舞台右側 · 走道旁"},
-  {id:"3", label:"3", title:"楊家長輩親友桌", seats:10, diet:"全部葷食", x:638, y:656, zone:"面向舞台右側 · 走道旁"},
-  {id:"6", label:"6", title:"楊家長輩親友桌", seats:10, diet:"全部葷食", x:778, y:400, zone:"面向舞台右側 · 中排"},
-  {id:"7", label:"7", title:"江爸爸好友桌", seats:10, diet:"全部葷食", x:778, y:544, zone:"面向舞台右側 · 中排"},
-  {id:"8", label:"8", title:"江爸爸好友桌", seats:10, diet:"1 人素食", x:778, y:688, zone:"面向舞台右側 · 中排"},
-  {id:"5", label:"5", title:"楊家長輩親友桌", seats:10, diet:"全部葷食", x:918, y:318, zone:"面向舞台右側 · 靠牆"},
-  {id:"9", label:"9", title:"江爸爸好友桌", seats:10, diet:"全部葷食", x:918, y:462, zone:"面向舞台右側 · 靠牆"},
-  {id:"10", label:"10", title:"新郎江紀武好友桌", seats:10, diet:"全部葷食", x:918, y:606, zone:"面向舞台右側 · 靠牆"},
-  {id:"11", label:"11", title:"新郎江紀武好友桌", seats:10, diet:"全部葷食", x:918, y:750, zone:"面向舞台右側 · 靠牆"},
-  {id:"12", label:"12", title:"未排（場地桌）", seats:10, diet:"", x:462, y:368, zone:"面向舞台左側 · 走道旁"},
-  {id:"13", label:"13", title:"未排（場地桌）", seats:10, diet:"", x:462, y:512, zone:"面向舞台左側 · 走道旁"},
-  {id:"14", label:"14", title:"未排（場地桌）", seats:10, diet:"", x:462, y:656, zone:"面向舞台左側 · 走道旁"},
-  {id:"15", label:"15", title:"未排（場地桌）", seats:10, diet:"", x:322, y:332, zone:"面向舞台左側 · 中排"},
-  {id:"16", label:"16", title:"未排（場地桌）", seats:10, diet:"", x:322, y:476, zone:"面向舞台左側 · 中排"},
-  {id:"17", label:"17", title:"未排（場地桌）", seats:10, diet:"", x:322, y:620, zone:"面向舞台左側 · 中排"},
-  {id:"19", label:"19", title:"未排（場地桌）", seats:10, diet:"", x:322, y:764, zone:"面向舞台左側 · 中排"},
-  {id:"18", label:"18", title:"未排（場地桌）", seats:10, diet:"", x:182, y:332, zone:"面向舞台左側 · 靠牆"},
-  {id:"20", label:"20", title:"未排（場地桌）", seats:10, diet:"", x:182, y:476, zone:"面向舞台左側 · 靠牆"},
-  {id:"21", label:"21", title:"未排（場地桌）", seats:10, diet:"", x:182, y:620, zone:"面向舞台左側 · 靠牆"},
-  {id:"22", label:"22", title:"未排（場地桌）", seats:10, diet:"", x:182, y:768, zone:"面向舞台左側 · 靠牆"}
+  {id:"1", label:"1", title:"女方（未排）", seats:10, diet:"", x:638, y:368, zone:"面向舞台右側 · 走道旁"},
+  {id:"2", label:"2", title:"女方（未排）", seats:10, diet:"", x:638, y:512, zone:"面向舞台右側 · 走道旁"},
+  {id:"3", label:"3", title:"女方（未排）", seats:10, diet:"", x:638, y:656, zone:"面向舞台右側 · 走道旁"},
+  {id:"6", label:"6", title:"女方（未排）", seats:10, diet:"", x:778, y:400, zone:"面向舞台右側 · 中排"},
+  {id:"7", label:"7", title:"女方（未排）", seats:10, diet:"", x:778, y:544, zone:"面向舞台右側 · 中排"},
+  {id:"8", label:"8", title:"女方（未排）", seats:10, diet:"", x:778, y:688, zone:"面向舞台右側 · 中排"},
+  {id:"5", label:"5", title:"女方（未排）", seats:10, diet:"", x:918, y:318, zone:"面向舞台右側 · 靠牆"},
+  {id:"9", label:"9", title:"女方（未排）", seats:10, diet:"", x:918, y:462, zone:"面向舞台右側 · 靠牆"},
+  {id:"10", label:"10", title:"女方（未排）", seats:10, diet:"", x:918, y:606, zone:"面向舞台右側 · 靠牆"},
+  {id:"11", label:"11", title:"女方（未排）", seats:10, diet:"", x:918, y:750, zone:"面向舞台右側 · 靠牆"},
+  {id:"12", label:"12", title:"金門魏爺爺親友桌", seats:10, diet:"全部葷食", x:462, y:368, zone:"面向舞台左側 · 走道旁（近主桌）"},
+  {id:"13", label:"13", title:"新郎江紀武好友桌", seats:10, diet:"全部葷食", x:462, y:512, zone:"面向舞台左側 · 走道旁"},
+  {id:"14", label:"14", title:"新郎江紀武好友桌", seats:10, diet:"全部葷食", x:462, y:656, zone:"面向舞台左側 · 走道旁"},
+  {id:"15", label:"15", title:"江家長輩親友桌", seats:10, diet:"全部葷食", x:322, y:332, zone:"面向舞台左側 · 中排"},
+  {id:"16", label:"16", title:"楊家長輩親友桌", seats:10, diet:"全部葷食", x:322, y:476, zone:"面向舞台左側 · 中排"},
+  {id:"17", label:"17", title:"楊家長輩親友桌", seats:10, diet:"全部葷食", x:322, y:620, zone:"面向舞台左側 · 中排"},
+  {id:"19", label:"19", title:"楊家長輩親友桌", seats:10, diet:"全部葷食", x:322, y:764, zone:"面向舞台左側 · 中排"},
+  {id:"18", label:"18", title:"江爸爸好友桌", seats:10, diet:"全部葷食", x:182, y:332, zone:"面向舞台左側 · 靠牆"},
+  {id:"20", label:"20", title:"江爸爸好友桌", seats:10, diet:"1 人素食", x:182, y:476, zone:"面向舞台左側 · 靠牆"},
+  {id:"21", label:"21", title:"江爸爸好友桌", seats:10, diet:"全部葷食", x:182, y:620, zone:"面向舞台左側 · 靠牆"},
+  {id:"22", label:"22", title:"男方（備用）", seats:10, diet:"", x:182, y:768, zone:"面向舞台左側 · 靠牆"}
 ];
-const ORDER = ["head","1","2","3","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22"];
+const ORDER = ["head","12","13","14","15","16","17","18","19","20","21","22","1","2","3","5","6","7","8","9","10","11"];
 const GUESTS = {
   head:["江紀武（新郎）","林鈺瑾（新娘）","吉兒爸爸","吉兒媽媽","吉兒長輩","吉兒長輩","張榮興（警政署長／證婚人主位，坐新郎新娘正對面）","魏爺爺（乾爸）","魏奶奶（乾媽）","老奶奶","阿武媽媽","阿武爸爸"],
-  "1":["魏靜瑄（乾姑姑）","魏銘龍（乾弟弟）","陳德樹（夫妻）","陳德樹","彭兼昌","張文興","伊金泉","翁李源","林弘曜（夫妻）","許嘉樺"],
-  "2":["江銘君（大姑姑）","黃洲祥（小姑爹）","阮阿綢（親家）","雅媛大妹","張雅媛","江紀威","江述禾（孫子）","林娓華（警政署督察室辦事員退休）","簡達人（基隆警局資訊科長退休）","李添益（行政院參議退休）"],
-  "3":["楊秋姍（家人4人）","楊秋姍","楊秋姍","楊秋姍","阿鑾（夫妻）","阿鑾","李秀鳳（夫妻）","李秀鳳","如慧（夫妻）","如慧"],
-  "5":["楊秋玲（家人7位）","楊秋玲","楊秋玲","楊秋玲","楊秋玲","楊秋玲","楊秋玲","楊秋琪（夫妻）","楊秋琪","楊秋瑛（大姐1位）"],
-  "6":["楊秋瑛（家人4位）","楊秋瑛","楊秋瑛","楊秋瑛","楊秋珍（家人6位）","楊秋珍","楊秋珍","楊秋珍","楊秋珍","楊秋珍"],
-  "7":["張國雄（保一總隊長）","劉傳璽（師大教授）","林國平（前國民黨金門主委）","黃維堅（金門消防局科長）夫妻","黃維堅","林存讓（新北市警局警友會）","李晃旭（夫妻）","李晃旭","張榮貴（Ai3智能公司董事長）夫妻","張榮貴"],
-  "8":["廖恆裕（桃園市警察局長）","張厚齊（警政署專門委員）·素食","潘志成（警政署督察）","李天文（扶輪社社長）","林茂松（調查局科長退休）","王英郁（高雄同學退休）","揚威孫（天威保全董事長）","曾啟彥（高雄市警局督察）","蔡上機（命理大師）","李承龍（警專教授）"],
-  "9":["楊鄉懿（情報局處長）夫妻","楊鄉懿","楊進豐（情報局副處長）","李皇德（利優生醫總經理）","張永辛（利優生醫）","林天福（桃園金門同鄉會長）夫妻","林天福","江志成（智順科技董事長）夫妻","江志成","呂俊翰（金門縣警局金城分局）"]
+  "12":["魏靜瑄（乾姑姑）","魏銘龍（乾弟弟）","陳德樹（夫妻）","陳德樹","彭兼昌","張文興","伊金泉","翁李源","林弘曜（夫妻）","許嘉樺"],
+  "15":["江銘君（大姑姑）","黃洲祥（小姑爹）","阮阿綢（親家）","雅媛大妹","張雅媛","江紀威","江述禾（孫子）","林娓華（警政署督察室辦事員退休）","簡達人（基隆警局資訊科長退休）","李添益（行政院參議退休）"],
+  "16":["楊秋姍（家人4人）","楊秋姍","楊秋姍","楊秋姍","阿鑾（夫妻）","阿鑾","李秀鳳（夫妻）","李秀鳳","如慧（夫妻）","如慧"],
+  "17":["楊秋玲（家人7位）","楊秋玲","楊秋玲","楊秋玲","楊秋玲","楊秋玲","楊秋玲","楊秋琪（夫妻）","楊秋琪","楊秋瑛（大姐1位）"],
+  "19":["楊秋瑛（家人4位）","楊秋瑛","楊秋瑛","楊秋瑛","楊秋珍（家人6位）","楊秋珍","楊秋珍","楊秋珍","楊秋珍","楊秋珍"],
+  "18":["張國雄（保一總隊長）","劉傳璽（師大教授）","林國平（前國民黨金門主委）","黃維堅（金門消防局科長）夫妻","黃維堅","林存讓（新北市警局警友會）","李晃旭（夫妻）","李晃旭","張榮貴（Ai3智能公司董事長）夫妻","張榮貴"],
+  "20":["廖恆裕（桃園市警察局長）","張厚齊（警政署專門委員）·素食","潘志成（警政署督察）","李天文（扶輪社社長）","林茂松（調查局科長退休）","王英郁（高雄同學退休）","揚威孫（天威保全董事長）","曾啟彥（高雄市警局督察）","蔡上機（命理大師）","李承龍（警專教授）"],
+  "21":["楊鄉懿（情報局處長）夫妻","楊鄉懿","楊進豐（情報局副處長）","李皇德（利優生醫總經理）","張永辛（利優生醫）","林天福（桃園金門同鄉會長）夫妻","林天福","江志成（智順科技董事長）夫妻","江志成","呂俊翰（金門縣警局金城分局）"],
+  "13":["","","","","","","","","",""],
+  "14":["","","","","","","","","",""]
 };
 function names(id){ return (GUESTS[id] || []).concat(Array(12).fill("")).slice(0, byId(id).seats); }
 function byId(id){ return TABLES.find(t => t.id === id); }
@@ -113,8 +115,9 @@ function draw(){
     for (let i=0;i<seats;i++){
       const s=i+1, p=pt(t.x,t.y,cr,s,seats), filled=!!ns[i], veg=(ns[i]||"").includes("素食");
       const fill = s===1 ? "#e11d48" : veg ? "#15803d" : filled ? "#7c2d12" : "#fff7ed";
+      const light = s===1 || veg || filled;
       chairs += `<circle cx="${p.x}" cy="${p.y}" r="${s===1?7.2:6.1}" fill="${fill}" stroke="#b45309" stroke-width="${s===1?1.6:1}"/>`;
-      if (s===1) chairs += `<text x="${p.x}" y="${p.y+0.6}" text-anchor="middle" dominant-baseline="middle" font-size="6.5" fill="#fff7ed" font-weight="700">1</text>`;
+      chairs += `<text x="${p.x}" y="${p.y+0.6}" text-anchor="middle" dominant-baseline="middle" font-size="6.5" fill="${light?"#fff7ed":"#7c2d12"}" font-weight="${s===1?700:600}">${s}</text>`;
     }
     const fill = t.id==="head" ? "#7f1d1d" : on ? "#fde68a" : "#fffbeb";
     const stroke = on ? "#b45309" : t.id==="head" ? "#fecaca" : "#b45309";
@@ -124,6 +127,7 @@ function draw(){
   svg.innerHTML = `
     <rect width="1100" height="1640" fill="#f6efe4"/>
     <text x="550" y="22" text-anchor="middle" font-size="15" fill="#7c2d12" font-weight="700">1004 江林府喜宴 · The Grand Ballroom I</text>
+    <text x="550" y="38" text-anchor="middle" font-size="9" fill="#92400e">面對舞台左男右女　新郎好友 13、14 桌　每椅標座號（紅點為 1 號）</text>
     <rect x="70" y="36" width="960" height="1210" fill="#f3e6d4" stroke="#7c2d12" stroke-width="3" rx="6"/>
     <rect x="365" y="62" width="370" height="158" fill="#e8c36a" stroke="#92400e" stroke-width="2"/>
     <text x="550" y="88" text-anchor="middle" font-size="11" fill="#7c2d12" font-weight="700">舞台音響 / 地板磁磚</text>
@@ -133,6 +137,8 @@ function draw(){
     <text x="415" y="209" text-anchor="middle" font-size="8" fill="#7c2d12">禮桌</text>
     <rect x="515" y="220" width="70" height="940" fill="#d18a16"/>
     <text x="550" y="560" text-anchor="middle" font-size="12" fill="#fff7ed" font-weight="700" transform="rotate(-90 550 560)">走道花廊</text>
+    <text x="250" y="268" text-anchor="middle" font-size="18" fill="#7c2d12" font-weight="800" opacity="0.42">男 方</text>
+    <text x="850" y="268" text-anchor="middle" font-size="18" fill="#7c2d12" font-weight="800" opacity="0.42">女 方</text>
     ${tables}
     <rect x="70" y="1246" width="168" height="86" fill="#fafaf9" stroke="#7c2d12"/>
     <text x="154" y="1296" text-anchor="middle" font-size="12" fill="#7c2d12" font-weight="700">VIP Room</text>

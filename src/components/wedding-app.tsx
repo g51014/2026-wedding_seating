@@ -68,7 +68,7 @@ export function WeddingApp() {
               阿武喜宴場地桌次
             </h1>
             <p className="mt-1 max-w-xl text-sm text-[#92400e]">
-              男方確認版桌次已填入主桌與 1–3、5–11 桌。1 號位為近舞台左上紅點，順時針排列。第 10、11 桌待填；12–22 桌為場地空桌。
+              面對舞台：左男右女。新郎好友兩桌在左側走道 13、14。男方已排主桌與 12、15–21；13、14 待填名單。右側 1–3、5–11 留給女方。紅點為 1 號位，順時針。
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -201,7 +201,7 @@ export function WeddingApp() {
 
           <TabsContent value="roster" className="print:hidden">
             <div className="mb-4 rounded-xl border border-amber-200 bg-[#fffaf3] p-4 text-sm leading-relaxed text-[#7c2d12]">
-              男方名單依確認版 Word 填入（主桌 12 人，第 1–3、5–9 桌已排，第 10、11 桌待填）。場地 12–22 桌尚未分配。1 號位為近舞台左上，順時針編號。
+              面對舞台左男右女。新郎好友在 13、14 桌（左側走道）。男方：主桌、12 魏爺爺親友、15 江家長輩、16／17／19 楊家、18／20／21 江爸爸好友、22 備用。右側女方尚未排。每椅標座號；紅點為 1 號位，順時針。
             </div>
             <RosterList
               guests={guests}

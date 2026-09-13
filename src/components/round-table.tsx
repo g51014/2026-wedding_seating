@@ -58,10 +58,11 @@ export function RoundTable({
         const matched = matchedSeats.includes(seat)
         const filled = Boolean(guests[i])
         const veg = (guests[i] ?? "").includes("素食")
-        const label = showNames ? shortName(guests[i]) || `${seat}` : seat === 1 ? "1" : ""
+        const label = showNames ? shortName(guests[i]) || `${seat}` : String(seat)
         const labelPos = showNames
           ? seatPoint(table.x, table.y, chairs + 14, seat, seats)
           : p
+        const lightOnChair = seat === 1 || veg || filled
         return (
           <g
             key={seat}
@@ -89,25 +90,25 @@ export function RoundTable({
               stroke={seat === 1 ? "#9f1239" : selected ? "#b45309" : "#b45309"}
               strokeWidth={seat === 1 ? 1.6 : 1}
             />
-            {label ? (
-              <text
-                x={labelPos.x}
-                y={labelPos.y + (showNames ? 0 : 0.6)}
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fontSize={showNames ? nameSize : 6.5}
-                fill={
-                  showNames
-                    ? seat === 1
-                      ? "#9f1239"
-                      : "#3f2a1d"
-                    : "#fff7ed"
-                }
-                fontWeight={seat === 1 ? 700 : 500}
-              >
-                {label}
-              </text>
-            ) : null}
+            <text
+              x={labelPos.x}
+              y={labelPos.y + (showNames ? 0 : 0.6)}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              fontSize={showNames ? nameSize : 6.5}
+              fill={
+                showNames
+                  ? seat === 1
+                    ? "#9f1239"
+                    : "#3f2a1d"
+                  : lightOnChair
+                    ? "#fff7ed"
+                    : "#7c2d12"
+              }
+              fontWeight={seat === 1 ? 700 : 600}
+            >
+              {label}
+            </text>
           </g>
         )
       })}
