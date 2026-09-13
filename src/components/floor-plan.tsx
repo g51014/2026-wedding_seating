@@ -1,17 +1,37 @@
 "use client"
 
+import type { PointerEvent } from "react"
+
 import { LAYOUT, TABLES, type TableDef } from "@/data/venue"
 import { RoundTable } from "@/components/round-table"
 import type { GuestMap } from "@/lib/seating"
+
+const HIT_RADIUS = 54
 
 type FloorPlanProps = {
   guests: GuestMap
   selectedId: string | null
   matched: { tableId: string; seat: number }[]
   onSelect: (id: string | null) => void
+  idPrefix?: string
 }
 
-export function FloorPlan({ guests, selectedId, matched, onSelect }: FloorPlanProps) {
+function tableAtPoint(svg: SVGSVGElement, event: PointerEvent<SVGSVGElement>) {
+  const ctm = svg.getScreenCTM()
+  if (!ctm) return null
+  const pt = svg.createSVGPoint()
+  pt.x = event.clientX
+  pt.y = event.clientY
+  const loc = pt.matrixTransform(ctm.inverse())
+  for (const table of TABLES) {
+    const dx = loc.x - table.x
+    const dy = loc.y - table.y
+    if (dx * dx + dy * dy <= HIT_RADIUS * HIT_RADIUS) return table.id
+  }
+  return null
+}
+
+export function FloorPlan({ guests, selectedId, matched, onSelect, idPrefix = "live" }: FloorPlanProps) {
   const matchByTable = new Map<string, number[]>()
   for (const hit of matched) {
     const list = matchByTable.get(hit.tableId) ?? []
@@ -23,20 +43,26 @@ export function FloorPlan({ guests, selectedId, matched, onSelect }: FloorPlanPr
     <svg
       viewBox={`0 0 ${LAYOUT.width} ${LAYOUT.height}`}
       className="h-auto w-full bg-[#f6efe4]"
-      role="img"
       aria-label="江林府喜宴 The Grand Ballroom I 場地桌次圖"
-      onClick={() => onSelect(null)}
+      style={{ touchAction: "manipulation" }}
+      onPointerDown={(event) => {
+        const id = tableAtPoint(event.currentTarget, event)
+        if (id) {
+          event.preventDefault()
+          onSelect(id)
+        }
+      }}
     >
       <defs>
-        <pattern id="carpet" width="28" height="28" patternUnits="userSpaceOnUse">
+        <pattern id={`${idPrefix}-carpet`} width="28" height="28" patternUnits="userSpaceOnUse">
           <rect width="28" height="28" fill="#f3e6d4" />
           <circle cx="14" cy="14" r="1.1" fill="#e7d3b5" />
         </pattern>
-        <linearGradient id="stageGold" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id={`${idPrefix}-stageGold`} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#f6d58b" />
           <stop offset="100%" stopColor="#c4922a" />
         </linearGradient>
-        <linearGradient id="aisle" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id={`${idPrefix}-aisle`} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#e39b1a" />
           <stop offset="100%" stopColor="#c47a12" />
         </linearGradient>
@@ -63,7 +89,7 @@ export function FloorPlan({ guests, selectedId, matched, onSelect }: FloorPlanPr
         y={LAYOUT.room.y}
         width={LAYOUT.room.w}
         height={LAYOUT.room.h}
-        fill="url(#carpet)"
+        fill={`url(#${idPrefix}-carpet)`}
         stroke="#7c2d12"
         strokeWidth="3"
         rx="6"
@@ -87,7 +113,7 @@ export function FloorPlan({ guests, selectedId, matched, onSelect }: FloorPlanPr
         y={LAYOUT.stage.y}
         width={LAYOUT.stage.w}
         height={LAYOUT.stage.h}
-        fill="url(#stageGold)"
+        fill={`url(#${idPrefix}-stageGold)`}
         stroke="#92400e"
         strokeWidth="2"
       />
@@ -123,7 +149,7 @@ export function FloorPlan({ guests, selectedId, matched, onSelect }: FloorPlanPr
         y={LAYOUT.aisle.y}
         width={LAYOUT.aisle.w}
         height={LAYOUT.aisle.h}
-        fill="url(#aisle)"
+        fill={`url(#${idPrefix}-aisle)`}
       />
       <text
         x="550"
@@ -133,21 +159,22 @@ export function FloorPlan({ guests, selectedId, matched, onSelect }: FloorPlanPr
         fill="#fff7ed"
         fontWeight="700"
         transform="rotate(-90 550 560)"
+        style={{ pointerEvents: "none" }}
       >
         走道花廊
       </text>
-      <text x="550" y="980" textAnchor="middle" fontSize="9" fill="#fff7ed">
+      <text x="550" y="980" textAnchor="middle" fontSize="9" fill="#fff7ed" style={{ pointerEvents: "none" }}>
         寬 80 · 深 100
       </text>
 
       {["#fb7185", "#fbbf24", "#fb7185", "#fbbf24", "#fb7185"].map((color, i) => (
-        <g key={i}>
+        <g key={i} style={{ pointerEvents: "none" }}>
           <circle cx={528} cy={300 + i * 140} r="6" fill={color} opacity="0.9" />
           <circle cx={572} cy={360 + i * 140} r="6" fill={color === "#fb7185" ? "#fbbf24" : "#fb7185"} />
         </g>
       ))}
 
-      <text x="88" y="280" fontSize="9" fill="#7c2d12" transform="rotate(-90 88 280)">
+      <text x="88" y="280" fontSize="9" fill="#7c2d12" transform="rotate(-90 88 280)" style={{ pointerEvents: "none" }}>
         210″ screen
       </text>
       <text x="88" y="620" fontSize="9" fill="#7c2d12" transform="rotate(-90 88 620)">
@@ -162,7 +189,7 @@ export function FloorPlan({ guests, selectedId, matched, onSelect }: FloorPlanPr
         stroke="#fb7185"
         strokeWidth="3"
       />
-      <text x="550" y="1192" textAnchor="middle" fontSize="8" fill="#9f1239">
+      <text x="550" y="1192" textAnchor="middle" fontSize="8" fill="#9f1239" style={{ pointerEvents: "none" }}>
         拱門 寬 300 · 高 300 · 深 150cm
       </text>
 
@@ -173,7 +200,7 @@ export function FloorPlan({ guests, selectedId, matched, onSelect }: FloorPlanPr
           guests={guests[table.id]}
           selected={selectedId === table.id}
           matchedSeats={matchByTable.get(table.id)}
-          onSelect={onSelect}
+          onSelect={(id) => onSelect(id)}
         />
       ))}
 

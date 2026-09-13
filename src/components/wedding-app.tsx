@@ -11,14 +11,6 @@ import { TableDetail } from "@/components/table-detail"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TABLE_ORDER, tableById } from "@/data/venue"
 import {
@@ -34,7 +26,6 @@ export function WeddingApp() {
   const [selectedId, setSelectedId] = useState<string | null>("head")
   const [query, setQuery] = useState("")
   const [tab, setTab] = useState("map")
-  const [sheetOpen, setSheetOpen] = useState(false)
   const fileRef = useRef<HTMLInputElement>(null)
 
   const filled = occupiedCount(guests)
@@ -51,9 +42,6 @@ export function WeddingApp() {
 
   function handleSelect(id: string | null) {
     setSelectedId(id)
-    if (id && window.matchMedia("(max-width: 1023px)").matches) {
-      setSheetOpen(true)
-    }
   }
 
   function handleImport(file: File) {
@@ -116,7 +104,7 @@ export function WeddingApp() {
       </header>
 
       <main className="mx-auto max-w-[1600px] px-4 py-4">
-        <Tabs value={tab} onValueChange={setTab}>
+          <Tabs value={tab} onValueChange={(value) => { if (typeof value === "string") setTab(value) }}>
           <div className="mb-3 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between print:hidden">
             <TabsList>
               <TabsTrigger value="map">場地圖</TabsTrigger>
@@ -158,10 +146,28 @@ export function WeddingApp() {
               selectedId={null}
               matched={[]}
               onSelect={() => {}}
+              idPrefix="print"
             />
           </div>
 
           <TabsContent value="map" className="print:hidden">
+            <div className="mb-3 flex flex-wrap gap-1.5 print:hidden">
+              {TABLE_ORDER.map((id) => {
+                const table = tableById(id)
+                if (!table) return null
+                const active = selectedId === id
+                return (
+                  <Button
+                    key={id}
+                    size="sm"
+                    variant={active ? "default" : "outline"}
+                    onClick={() => handleSelect(id)}
+                  >
+                    {id === "head" ? "主桌" : `${table.label}桌`}
+                  </Button>
+                )
+              })}
+            </div>
             <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
               <div className="overflow-auto rounded-2xl border border-amber-200 bg-[#f6efe4] print:border-0">
                 <FloorPlan
@@ -171,8 +177,10 @@ export function WeddingApp() {
                   onSelect={handleSelect}
                 />
               </div>
-              <aside className="hidden space-y-4 lg:block print:hidden">
-                <SeatLegend />
+              <aside className="space-y-4">
+                <div className="hidden lg:block">
+                  <SeatLegend />
+                </div>
                 {selected && (
                   <div className="rounded-xl border border-amber-200 bg-[#fffaf3] p-4">
                     <TableDetail
@@ -184,7 +192,7 @@ export function WeddingApp() {
                 )}
                 {!selected && (
                   <p className="rounded-xl border border-dashed border-amber-200 bg-[#fffaf3] p-4 text-sm text-[#92400e]">
-                    點選場中圓桌即可查看 10 個座位並填入姓名。
+                    點選場中圓桌或上方桌號，即可查看 10 個座位並填入姓名。
                   </p>
                 )}
               </aside>
@@ -195,7 +203,13 @@ export function WeddingApp() {
             <div className="mb-4 rounded-xl border border-amber-200 bg-[#fffaf3] p-4 text-sm leading-relaxed text-[#7c2d12]">
               完整場地桌次依 Grand Ballroom I 實體桌位排列，不沿用其他草稿桌號。每桌 1 號位固定為近舞台左上，順時針至 10 號。目前共 {TABLE_ORDER.length} 桌、220 席。
             </div>
-            <RosterList guests={guests} onSelect={handleSelect} />
+            <RosterList
+              guests={guests}
+              onSelect={(id) => {
+                handleSelect(id)
+                setTab("map")
+              }}
+            />
           </TabsContent>
 
           <div className="print-break hidden print:block">
@@ -233,24 +247,6 @@ export function WeddingApp() {
           </TabsContent>
         </Tabs>
       </main>
-
-      <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-        <SheetContent side="bottom" className="max-h-[88vh] overflow-y-auto lg:hidden">
-          <SheetHeader>
-            <SheetTitle>桌次座位</SheetTitle>
-            <SheetDescription>紅點 1 號位，順時針至 10 號。</SheetDescription>
-          </SheetHeader>
-          <ScrollArea className="px-4 pb-6">
-            {selected && (
-              <TableDetail
-                tableId={selected.id}
-                guests={guests[selected.id]}
-                onChange={(seat, name) => updateSeat(selected.id, seat, name)}
-              />
-            )}
-          </ScrollArea>
-        </SheetContent>
-      </Sheet>
     </div>
   )
 }

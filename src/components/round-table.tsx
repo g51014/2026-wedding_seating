@@ -1,5 +1,7 @@
 "use client"
 
+import type { MouseEvent, PointerEvent } from "react"
+
 import { SEAT_COUNT, seatPoint, type TableDef } from "@/data/venue"
 
 type RoundTableProps = {
@@ -28,21 +30,39 @@ export function RoundTable({
   onSeatClick,
 }: RoundTableProps) {
   const isHead = table.id === "head"
+
+  function selectTable(event: MouseEvent | PointerEvent) {
+    event.stopPropagation()
+    onSelect?.(table.id)
+  }
+
   return (
     <g
       className="cursor-pointer"
-      onClick={(e) => {
-        e.stopPropagation()
-        onSelect?.(table.id)
-      }}
+      onPointerDown={selectTable}
+      onClick={selectTable}
+      style={{ pointerEvents: "all" }}
     >
+      <circle
+        cx={table.x}
+        cy={table.y}
+        r={chairRadius + 10}
+        fill="rgba(255,247,237,0.01)"
+      />
       {Array.from({ length: SEAT_COUNT }, (_, i) => {
         const seat = i + 1
         const p = seatPoint(table.x, table.y, chairRadius, seat)
         const matched = matchedSeats.includes(seat)
         const filled = Boolean(guests[i])
         return (
-          <g key={seat} onClick={() => onSeatClick?.(seat)}>
+          <g
+            key={seat}
+            onClick={(event) => {
+              event.stopPropagation()
+              onSelect?.(table.id)
+              onSeatClick?.(seat)
+            }}
+          >
             <circle
               cx={p.x}
               cy={p.y}
