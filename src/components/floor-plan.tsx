@@ -81,7 +81,7 @@ export function FloorPlan({ guests, selectedId, matched, onSelect, idPrefix = "l
         1004 江林府喜宴 · The Grand Ballroom I
       </text>
       <text x={LAYOUT.width / 2} y={38} textAnchor="middle" fontSize="9" fill="#92400e">
-        面對舞台左 11 桌（男方）／右 10 桌（女方）　新郎好友 13、14　紅點為 1 號位
+        面對舞台左 11 桌（男方）／右 10 桌（女方）　新郎部屬 13、14　紅點為 1 號位
       </text>
 
       <rect
