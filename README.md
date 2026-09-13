@@ -6,6 +6,8 @@
 
 https://g51014.github.io/2026-wedding_seating/
 
+若第一次還打不開，到倉庫 **Settings → Pages**，Source 選 **Deploy from a branch**，Branch 選 `gh-pages`、資料夾 `/ (root)`，儲存後等一兩分鐘。
+
 本機也可直接用瀏覽器打開 `阿武喜宴場地桌次.html` 或 `index.html`。
 
 ## 怎麼看
