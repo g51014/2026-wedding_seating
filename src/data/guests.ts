@@ -18,7 +18,7 @@ export const WORD_TO_VENUE: Record<string, string> = {
   "11": "14",
 }
 
-/** 男方確認版桌次（V2／1150828）。鍵為 Word 原桌號。場地 13、14 為新郎好友桌（內部依組別分桌）。 */
+/** 男方確認版桌次（V2／1150828）。鍵為 Word 原桌號。場地 13、14 為新郎好友桌。 */
 export const WORD_GUESTS: Record<string, string[]> = {
   head: [
     "江紀武（新郎）",
@@ -131,28 +131,28 @@ export const WORD_GUESTS: Record<string, string[]> = {
     "呂俊翰（金門縣警局金城分局）",
   ],
   "10": [
-    "Taylor 陳俊諺（A Team Leader／夫妻）",
+    "Taylor 陳俊諺（夫妻）",
     "陳俊諺眷屬",
-    "Winnie 王薏雯（A Team Vice Leader）",
-    "Lory 顏慧玲（A Team／夫妻與小朋友）",
+    "Winnie 王薏雯",
+    "Lory 顏慧玲（夫妻與小朋友）",
     "顏慧玲眷屬",
     "顏慧玲小朋友",
-    "Max 張祐誠（A Team）",
-    "Olivia 呂玗潔（A Team）",
-    "Joyce 曾鈺鈞（C Team Leader）",
-    "Jerry 藍元皇（QA Team Leader）",
+    "Max 張祐誠",
+    "Olivia 呂玗潔",
+    "Joyce 曾鈺鈞",
+    "Jerry 藍元皇",
   ],
   "11": [
-    "Ben 廖宇軒（B Team Leader／夫妻與小朋友）·另1位小朋友兒童座椅不佔主位",
+    "Ben 廖宇軒（夫妻與小朋友）·另1位小朋友兒童座椅不佔主位",
     "廖宇軒眷屬",
     "廖宇軒小朋友",
-    "Peggy 石佩玉（B Team Vice Leader）",
-    "George 郭建宏（B Team）",
-    "Quentina 邱婷圓（B Team）",
-    "Allen 王淇生（B Team）",
-    "Eva 蔡依雯（B Team／夫妻）",
+    "Peggy 石佩玉",
+    "George 郭建宏",
+    "Quentina 邱婷圓",
+    "Allen 王淇生",
+    "Eva 蔡依雯（夫妻）",
     "蔡依雯眷屬",
-    "Dio 張敬暘（B Team）",
+    "Dio 張敬暘",
   ],
 }
 
