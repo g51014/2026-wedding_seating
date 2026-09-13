@@ -63,19 +63,19 @@ export function RoundTable({
               >
                 {guests[i] || `${seat}`}
               </text>
-            ) : (
+            ) : seat === 1 ? (
               <text
                 x={p.x}
                 y={p.y + 0.6}
                 textAnchor="middle"
                 dominantBaseline="middle"
-                fontSize={seat === 1 ? 6.5 : 5.5}
-                fill={seat === 1 || filled ? "#fff7ed" : "#9a3412"}
+                fontSize={6.5}
+                fill="#fff7ed"
                 fontWeight={700}
               >
-                {seat}
+                1
               </text>
-            )}
+            ) : null}
           </g>
         )
       })}
@@ -89,7 +89,7 @@ export function RoundTable({
       />
       <text
         x={table.x}
-        y={table.y + (isHead ? 1 : 1)}
+        y={table.y + 1}
         textAnchor="middle"
         dominantBaseline="middle"
         fontSize={isHead ? 11 : 13}
