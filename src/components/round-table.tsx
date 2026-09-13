@@ -75,7 +75,7 @@ export function RoundTable({
             <circle
               cx={p.x}
               cy={p.y}
-              r={seat === 1 ? 7.2 : 6.1}
+              r={seat === 1 ? Math.max(3.4, chairs * 0.16) : Math.max(3, chairs * 0.14)}
               fill={
                 seat === 1
                   ? "#e11d48"
@@ -125,7 +125,7 @@ export function RoundTable({
         y={table.y + 1}
         textAnchor="middle"
         dominantBaseline="middle"
-        fontSize={isHead ? 11 : 13}
+        fontSize={isHead ? Math.max(8, tableRadius - 6) : Math.max(8, tableRadius - 4)}
         fill={isHead ? "#fef3c7" : "#7c2d12"}
         fontWeight={700}
       >
