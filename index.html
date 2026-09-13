@@ -43,7 +43,7 @@
 <header>
   <div class="sub">2026／10／4 · 江林府 THE GRAND BALLROOM I</div>
   <h1>紀武結婚喜宴場地桌次</h1>
-  <p class="note">場地依 Grand Ballroom I 示意圖：面對舞台<b>左側 11 桌</b>（男方 12–22）、<b>右側 10 桌</b>（女方 1–3、5–11，無 4 號）。新郎部屬在左側走道 <b>13（A／C／QA）、14（B Team）</b>，20 主位剛好兩桌；14 桌另備兒童座椅 1。每椅標座號，紅點為 1 號位，其餘順時針。主桌 12 席，其餘 10 席。</p>
+  <p class="note">場地依 Grand Ballroom I 示意圖：面對舞台<b>左側 11 桌</b>（男方 12–22）、<b>右側 10 桌</b>（女方 1–3、5–11，無 4 號）。新郎好友在左側走道 <b>13、14</b>；14 桌另備兒童座椅 1。每椅標座號，紅點為 1 號位，其餘順時針。主桌 12 席，其餘 10 席。</p>
   <p class="legend"><span class="dot" style="background:#e11d48"></span>1 號位<span class="dot" style="background:#7c2d12"></span>已入座<span class="dot" style="background:#15803d"></span>素食<span class="dot" style="background:#fff7ed;border:1px solid #b45309"></span>空位</p>
 </header>
 <div class="layout">
@@ -68,8 +68,8 @@ const TABLES = [
   {id:"10", label:"10", title:"女方（未排）", seats:10, diet:"", x:920, y:750, zone:"面向舞台右側 · 靠牆"},
   {id:"11", label:"11", title:"女方（未排）", seats:10, diet:"", x:920, y:950, zone:"面向舞台右側 · 靠牆"},
   {id:"12", label:"12", title:"金門魏爺爺親友桌", seats:10, diet:"全部葷食", x:455, y:450, zone:"面向舞台左側 · 走道旁（近主桌）"},
-  {id:"13", label:"13", title:"新郎部屬桌（A／C／QA）", seats:10, diet:"全部葷食", x:455, y:650, zone:"面向舞台左側 · 走道旁"},
-  {id:"14", label:"14", title:"新郎部屬桌（B Team）", seats:10, diet:"全部葷食 · 另備兒童座椅 1（廖宇軒小朋友，不佔主位）", x:455, y:850, zone:"面向舞台左側 · 走道旁"},
+  {id:"13", label:"13", title:"新郎江紀武好友桌", seats:10, diet:"全部葷食", x:455, y:650, zone:"面向舞台左側 · 走道旁"},
+  {id:"14", label:"14", title:"新郎江紀武好友桌", seats:10, diet:"全部葷食 · 另備兒童座椅 1（廖宇軒小朋友，不佔主位）", x:455, y:850, zone:"面向舞台左側 · 走道旁"},
   {id:"15", label:"15", title:"江家長輩親友桌", seats:10, diet:"全部葷食", x:325, y:350, zone:"面向舞台左側 · 中排"},
   {id:"16", label:"16", title:"楊家長輩親友桌", seats:10, diet:"全部葷食", x:325, y:550, zone:"面向舞台左側 · 中排"},
   {id:"17", label:"17", title:"楊家長輩親友桌", seats:10, diet:"全部葷食", x:325, y:750, zone:"面向舞台左側 · 中排"},
@@ -127,7 +127,7 @@ function draw(){
   svg.innerHTML = `
     <rect width="1100" height="1640" fill="#f6efe4"/>
     <text x="550" y="22" text-anchor="middle" font-size="15" fill="#7c2d12" font-weight="700">1004 江林府喜宴 · The Grand Ballroom I</text>
-    <text x="550" y="38" text-anchor="middle" font-size="9" fill="#92400e">面對舞台左 11 桌（男方）／右 10 桌（女方）　新郎部屬 13、14　紅點為 1 號位</text>
+    <text x="550" y="38" text-anchor="middle" font-size="9" fill="#92400e">面對舞台左 11 桌（男方）／右 10 桌（女方）　新郎好友 13、14　紅點為 1 號位</text>
     <rect x="70" y="36" width="960" height="1210" fill="#f3e6d4" stroke="#7c2d12" stroke-width="3" rx="6"/>
     <rect x="365" y="62" width="370" height="158" fill="#e8c36a" stroke="#92400e" stroke-width="2"/>
     <text x="550" y="88" text-anchor="middle" font-size="11" fill="#7c2d12" font-weight="700">舞台音響 / 地板磁磚</text>

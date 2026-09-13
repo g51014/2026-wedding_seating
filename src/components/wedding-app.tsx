@@ -68,7 +68,7 @@ export function WeddingApp() {
               阿武喜宴場地桌次
             </h1>
             <p className="mt-1 max-w-xl text-sm text-[#92400e]">
-              場地依 Grand Ballroom I 示意圖：面對舞台左側 11 桌（男方 12–22）、右側 10 桌（女方 1–3、5–11，無 4 號）。新郎部屬在左側走道 13（A／C／QA）、14（B Team，另備兒童座椅 1）。紅點為 1 號位，順時針。
+              場地依 Grand Ballroom I 示意圖：面對舞台左側 11 桌（男方 12–22）、右側 10 桌（女方 1–3、5–11，無 4 號）。新郎好友在左側走道 13、14；14 桌另備兒童座椅 1。紅點為 1 號位，順時針。
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -201,7 +201,7 @@ export function WeddingApp() {
 
           <TabsContent value="roster" className="print:hidden">
             <div className="mb-4 rounded-xl border border-amber-200 bg-[#fffaf3] p-4 text-sm leading-relaxed text-[#7c2d12]">
-              場地與示意圖相同：左 11 桌、右 10 桌。新郎部屬 20 主位剛好兩桌：13 為 A Team、C、QA；14 為 B Team。Ben 廖宇軒另 1 位小朋友兒童座椅不佔主位。男方其餘：主桌、12 魏爺爺親友、15 江家長輩、16／17／19 楊家、18／20／21 江爸爸好友、22 備用。右側女方尚未排。
+              場地與示意圖相同：左 11 桌、右 10 桌。新郎好友 13、14 桌已排滿。14 桌另備兒童座椅 1（廖宇軒小朋友，不佔主位）。男方其餘：主桌、12 魏爺爺親友、15 江家長輩、16／17／19 楊家、18／20／21 江爸爸好友、22 備用。右側女方尚未排。
             </div>
             <RosterList
               guests={guests}

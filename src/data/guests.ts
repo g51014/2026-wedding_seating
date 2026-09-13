@@ -18,7 +18,7 @@ export const WORD_TO_VENUE: Record<string, string> = {
   "11": "14",
 }
 
-/** 男方確認版桌次（V2／1150828）。鍵為 Word 原桌號。第 10、11 桌為新郎部屬（場地 13、14）。 */
+/** 男方確認版桌次（V2／1150828）。鍵為 Word 原桌號。場地 13、14 為新郎好友桌（內部依組別分桌）。 */
 export const WORD_GUESTS: Record<string, string[]> = {
   head: [
     "江紀武（新郎）",
