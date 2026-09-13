@@ -23,7 +23,7 @@ import {
 
 export function WeddingApp() {
   const [guests, setGuests] = useGuests()
-  const [selectedId, setSelectedId] = useState<string | null>("head")
+  const [selectedId, setSelectedId] = useState<string | null>("13")
   const [query, setQuery] = useState("")
   const [tab, setTab] = useState("map")
   const fileRef = useRef<HTMLInputElement>(null)
