@@ -36,28 +36,28 @@ export const TABLES: TableDef[] = [
     label: "主桌",
     title: "新郎新娘長輩桌",
     seats: 12,
-    diet: "全部葷食",
+    diet: "2 人不吃牛",
     x: 267.5,
     y: 238.3,
     side: "center",
     zone: "舞台前方 · 走道花廊",
   },
-  { id: "1", label: "1", title: "女方（未排）", seats: 10, diet: "", x: 314.2, y: 309.4, side: "stage-right", zone: "面向舞台右側 · 走道旁" },
-  { id: "2", label: "2", title: "女方（未排）", seats: 10, diet: "", x: 314.1, y: 379.1, side: "stage-right", zone: "面向舞台右側 · 走道旁" },
-  { id: "3", label: "3", title: "女方（未排）", seats: 10, diet: "", x: 314.1, y: 452.4, side: "stage-right", zone: "面向舞台右側 · 走道旁" },
-  { id: "6", label: "6", title: "女方（未排）", seats: 10, diet: "", x: 369.7, y: 269.7, side: "stage-right", zone: "面向舞台右側 · 中排" },
-  { id: "7", label: "7", title: "女方（未排）", seats: 10, diet: "", x: 369.8, y: 334.9, side: "stage-right", zone: "面向舞台右側 · 中排" },
-  { id: "8", label: "8", title: "女方（未排）", seats: 10, diet: "", x: 369.8, y: 404.8, side: "stage-right", zone: "面向舞台右側 · 中排" },
-  { id: "5", label: "5", title: "女方（未排）", seats: 10, diet: "", x: 426.3, y: 298.5, side: "stage-right", zone: "面向舞台右側 · 靠牆" },
-  { id: "9", label: "9", title: "女方（未排）", seats: 10, diet: "", x: 426.4, y: 368.3, side: "stage-right", zone: "面向舞台右側 · 靠牆" },
-  { id: "10", label: "10", title: "女方（未排）", seats: 10, diet: "", x: 426.4, y: 441.7, side: "stage-right", zone: "面向舞台右側 · 靠牆" },
-  { id: "11", label: "11", title: "女方（未排）", seats: 10, diet: "", x: 369.7, y: 471.7, side: "stage-right", zone: "面向舞台右側 · 中排" },
+  { id: "1", label: "1", title: "女方媽媽親戚桌", seats: 10, diet: "全部葷食", x: 314.2, y: 309.4, side: "stage-right", zone: "面向舞台右側 · 走道旁" },
+  { id: "2", label: "2", title: "女方爸爸親戚桌", seats: 10, diet: "全部葷食", x: 314.1, y: 379.1, side: "stage-right", zone: "面向舞台右側 · 走道旁" },
+  { id: "3", label: "3", title: "女方爸爸親戚桌", seats: 10, diet: "全部葷食", x: 314.1, y: 452.4, side: "stage-right", zone: "面向舞台右側 · 走道旁" },
+  { id: "6", label: "6", title: "女方爸爸親戚桌", seats: 10, diet: "全部葷食", x: 369.7, y: 269.7, side: "stage-right", zone: "面向舞台右側 · 中排" },
+  { id: "7", label: "7", title: "女方艾克森桌", seats: 10, diet: "全部葷食", x: 369.8, y: 334.9, side: "stage-right", zone: "面向舞台右側 · 中排" },
+  { id: "8", label: "8", title: "女方艾克森桌", seats: 10, diet: "全部葷食", x: 369.8, y: 404.8, side: "stage-right", zone: "面向舞台右側 · 中排" },
+  { id: "5", label: "5", title: "女方仁寶桌", seats: 10, diet: "1 人不吃牛", x: 426.3, y: 298.5, side: "stage-right", zone: "面向舞台右側 · 靠牆" },
+  { id: "9", label: "9", title: "女方萬里雲桌", seats: 10, diet: "全部葷食", x: 426.4, y: 368.3, side: "stage-right", zone: "面向舞台右側 · 靠牆" },
+  { id: "10", label: "10", title: "女方萬里雲桌", seats: 10, diet: "全部葷食", x: 426.4, y: 441.7, side: "stage-right", zone: "面向舞台右側 · 靠牆" },
+  { id: "11", label: "11", title: "女方創順與好友桌", seats: 10, diet: "全部葷食", x: 369.7, y: 471.7, side: "stage-right", zone: "面向舞台右側 · 中排" },
   { id: "12", label: "12", title: "金門魏爺爺親友桌", seats: 10, diet: "全部葷食", x: 214.6, y: 308.7, side: "stage-left", zone: "面向舞台左側 · 走道旁（近主桌）" },
   { id: "13", label: "13", title: "新郎江紀武好友桌", seats: 10, diet: "全部葷食", x: 214.7, y: 378.5, side: "stage-left", zone: "面向舞台左側 · 走道旁" },
   { id: "14", label: "14", title: "新郎江紀武好友桌", seats: 10, diet: "全部葷食 · 另備兒童座椅 1（廖宇軒小朋友，不佔主位）", x: 214.6, y: 451.8, side: "stage-left", zone: "面向舞台左側 · 走道旁" },
-  { id: "15", label: "15", title: "江家長輩親友桌", seats: 10, diet: "全部葷食", x: 158.1, y: 275.7, side: "stage-left", zone: "面向舞台左側 · 中排" },
-  { id: "16", label: "16", title: "楊家長輩親友桌", seats: 10, diet: "全部葷食", x: 158.1, y: 346.9, side: "stage-left", zone: "面向舞台左側 · 中排" },
-  { id: "17", label: "17", title: "楊家長輩親友桌", seats: 10, diet: "全部葷食", x: 158.2, y: 414.3, side: "stage-left", zone: "面向舞台左側 · 中排" },
+  { id: "15", label: "15", title: "江家長輩親友桌", seats: 10, diet: "2 人不吃牛", x: 158.1, y: 275.7, side: "stage-left", zone: "面向舞台左側 · 中排" },
+  { id: "16", label: "16", title: "楊家長輩親友桌", seats: 10, diet: "5 人不吃牛", x: 158.1, y: 346.9, side: "stage-left", zone: "面向舞台左側 · 中排" },
+  { id: "17", label: "17", title: "楊家長輩親友桌", seats: 10, diet: "1 人不吃牛", x: 158.2, y: 414.3, side: "stage-left", zone: "面向舞台左側 · 中排" },
   { id: "19", label: "19", title: "楊家長輩親友桌", seats: 10, diet: "全部葷食", x: 158.1, y: 476.4, side: "stage-left", zone: "面向舞台左側 · 中排" },
   { id: "18", label: "18", title: "江爸爸好友桌", seats: 10, diet: "全部葷食", x: 104.4, y: 299.3, side: "stage-left", zone: "面向舞台左側 · 靠牆" },
   { id: "20", label: "20", title: "江爸爸好友桌", seats: 10, diet: "1 人素食", x: 104.4, y: 374.3, side: "stage-left", zone: "面向舞台左側 · 靠牆" },
@@ -129,6 +129,11 @@ export function emptyGuests(): Record<string, string[]> {
 
 export function shortName(name: string) {
   if (!name) return ""
-  const trimmed = name.replace(/（/g, "(").split("(")[0].trim()
+  const trimmed = name
+    .replace(/·不吃牛/g, "")
+    .replace(/·素食/g, "")
+    .replace(/（/g, "(")
+    .split("(")[0]
+    .trim()
   return trimmed.slice(0, 5)
 }

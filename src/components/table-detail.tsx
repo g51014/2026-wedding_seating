@@ -50,6 +50,7 @@ export function TableDetail({ tableId, guests, onChange }: TableDetailProps) {
         {Array.from({ length: seats }, (_, i) => {
           const seat = i + 1
           const veg = (guests[i] ?? "").includes("素食")
+          const noBeef = (guests[i] ?? "").includes("不吃牛")
           return (
             <li key={seat} className="flex items-center gap-2">
               <span
@@ -58,7 +59,9 @@ export function TableDetail({ tableId, guests, onChange }: TableDetailProps) {
                     ? "bg-rose-600 text-white"
                     : veg
                       ? "bg-green-700 text-white"
-                      : "bg-amber-100 text-amber-900"
+                      : noBeef
+                        ? "bg-teal-700 text-white"
+                        : "bg-amber-100 text-amber-900"
                 }`}
               >
                 {seat}

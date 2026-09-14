@@ -58,11 +58,12 @@ export function RoundTable({
         const matched = matchedSeats.includes(seat)
         const filled = Boolean(guests[i])
         const veg = (guests[i] ?? "").includes("素食")
+        const noBeef = (guests[i] ?? "").includes("不吃牛")
         const label = showNames ? shortName(guests[i]) || `${seat}` : String(seat)
         const labelPos = showNames
           ? seatPoint(table.x, table.y, chairs + 14, seat, seats)
           : p
-        const lightOnChair = seat === 1 || veg || filled
+        const lightOnChair = seat === 1 || veg || noBeef || filled
         return (
           <g
             key={seat}
@@ -81,11 +82,13 @@ export function RoundTable({
                   ? "#e11d48"
                   : veg
                     ? "#15803d"
-                    : matched
-                      ? "#d97706"
-                      : filled
-                        ? "#7c2d12"
-                        : "#fff7ed"
+                    : noBeef
+                      ? "#0f766e"
+                      : matched
+                        ? "#d97706"
+                        : filled
+                          ? "#7c2d12"
+                          : "#fff7ed"
               }
               stroke={seat === 1 ? "#9f1239" : selected ? "#b45309" : "#b45309"}
               strokeWidth={seat === 1 ? 1.6 : 1}

@@ -23,16 +23,16 @@ export const WORD_GUESTS: Record<string, string[]> = {
   head: [
     "江紀武（新郎）",
     "林鈺瑾（新娘）",
-    "吉兒爸爸",
-    "吉兒媽媽",
-    "吉兒長輩",
-    "吉兒長輩",
+    "林活汶（吉兒爸爸）",
+    "葉秋華（吉兒媽媽）·不吃牛",
+    "葉秋英（吉兒長輩）",
+    "鄭森義（吉兒長輩）",
     "張榮興（警政署長／證婚人主位，坐新郎新娘正對面）",
     "魏爺爺（乾爸）",
     "魏奶奶（乾媽）",
     "老奶奶",
     "阿武媽媽",
-    "阿武爸爸",
+    "阿武爸爸·不吃牛",
   ],
   "1": [
     "魏靜瑄（乾姑姑）",
@@ -49,9 +49,9 @@ export const WORD_GUESTS: Record<string, string[]> = {
   "2": [
     "江銘君（大姑姑）",
     "黃洲祥（小姑爹）",
-    "阮阿綢（親家）",
+    "阮阿綢（親家）·不吃牛",
     "雅媛大妹",
-    "張雅媛",
+    "張雅媛·不吃牛",
     "江紀威",
     "江述禾（孫子）",
     "林娓華（警政署督察室辦事員退休）",
@@ -60,19 +60,19 @@ export const WORD_GUESTS: Record<string, string[]> = {
   ],
   "3": [
     "楊秋姍（家人4人）",
+    "楊秋姍（親屬）·不吃牛",
     "楊秋姍",
     "楊秋姍",
-    "楊秋姍",
-    "阿鑾（夫妻）",
-    "阿鑾",
+    "鄒金鑾（夫妻）·不吃牛",
+    "鄒金鑾·不吃牛",
     "李秀鳳（夫妻）",
     "李秀鳳",
-    "如慧（夫妻）",
-    "如慧",
+    "張如慧（夫妻）·不吃牛",
+    "張如慧·不吃牛",
   ],
   "5": [
     "楊秋玲（家人7位）",
-    "楊秋玲",
+    "楊秋玲（親屬）·不吃牛",
     "楊秋玲",
     "楊秋玲",
     "楊秋玲",
@@ -156,10 +156,124 @@ export const WORD_GUESTS: Record<string, string[]> = {
   ],
 }
 
+/**
+ * 女方確認版（排位鷗鷗分組）。鍵為場地桌號。
+ * 面對舞台右側：親屬近主桌，同事／好友往外。
+ */
+export const BRIDE_GUESTS: Record<string, string[]> = {
+  "1": [
+    "尤晟彥",
+    "尤晟彥 2",
+    "楊御書",
+    "楊御書 2",
+    "葉倫松",
+    "葉斯廷",
+    "鄭椀云",
+    "鄭椀孺",
+    "鄭諺隆",
+  ],
+  "2": [
+    "林淑惠（姑姑）",
+    "林淑惠 2",
+    "林淑惠 3",
+    "林淑惠 4",
+    "林瑞蓉",
+    "林瑞蓉 2",
+    "林瑞蓉 3",
+    "林瑞蓉 4",
+  ],
+  "3": [
+    "林佳諭",
+    "林佳諭 2",
+    "林佳諭 3",
+    "林武煌",
+    "林瑞鴻",
+    "林瑞鴻 2",
+    "林瑞鴻 3",
+    "林瑞鴻 4",
+  ],
+  "6": [
+    "林煜峰（哥哥）",
+    "葉斯櫻",
+    "葉斯櫻 2",
+    "葉斯櫻 3",
+    "鄭育萱（二阿姨）",
+    "鄭育萱 2",
+    "鄭育萱 3",
+    "鄭育萱 4",
+    "麥素華",
+  ],
+  "7": [
+    "Ada",
+    "Ada 2",
+    "Ada 3",
+    "Hsu Chen Jui",
+    "YT",
+    "丁志杰／Jeremy",
+    "李礴軒／Lester",
+    "洪梓翔",
+    "王承皓",
+  ],
+  "8": [
+    "Gino",
+    "Shirley",
+    "Tric",
+    "Zmic（艾克森）",
+    "宋玉琨／Lauren",
+    "林伯瑾",
+    "王崧豪",
+    "陳癸庚／Brandan",
+    "陳諭",
+    "陳諭 2",
+  ],
+  "5": [
+    "Anita（仁寶）",
+    "Anita（仁寶）2",
+    "Ethan（仁寶）",
+    "Louis（仁寶）",
+    "Mindy（仁寶）",
+    "Shawn 翁祥恩（仁寶）",
+    "廖瑜瑄／Peggy（仁寶，不吃牛）",
+    "林振鴻／Neo（仁寶）",
+  ],
+  "9": [
+    "Shan（萬里雲）",
+    "廖淯婷",
+    "廖淯婷 2",
+    "廖淯婷 3",
+    "恩恩大小姐（萬里雲）",
+    "恩恩大小姐 2（萬里雲）",
+    "黃雅萱／Lia（萬里雲）",
+  ],
+  "10": [
+    "張家瑋／Welly（萬里雲）",
+    "張維軒",
+    "林敬傑（萬里雲）",
+    "林敬傑（萬里雲）",
+    "楊季穎",
+    "陳子揚／Jeff Chen（萬里雲）",
+    "陳楷榮／Aaron（萬里雲）",
+  ],
+  "11": [
+    "Hiro",
+    "Phoebe",
+    "Sara Lyn（創順）",
+    "Sara Lyn 2（創順）",
+    "吳孟錡、許嘉晏（仁寶）",
+    "吳孟錡、許嘉晏 2（仁寶）",
+    "吳孟錡、許嘉晏 3（仁寶）",
+    "李於軒（創順）",
+  ],
+}
+
 export function defaultGuests() {
   const guests = emptyGuests()
   for (const [wordId, names] of Object.entries(WORD_GUESTS)) {
     const venueId = WORD_TO_VENUE[wordId] ?? wordId
+    if (!guests[venueId]) continue
+    guests[venueId] = guests[venueId].map((_, i) => names[i] ?? "")
+  }
+  for (const [venueId, names] of Object.entries(BRIDE_GUESTS)) {
     if (!guests[venueId]) continue
     guests[venueId] = guests[venueId].map((_, i) => names[i] ?? "")
   }
@@ -168,4 +282,8 @@ export function defaultGuests() {
 
 export function isVegetarian(name: string) {
   return name.includes("素食")
+}
+
+export function isNoBeef(name: string) {
+  return name.includes("不吃牛")
 }
