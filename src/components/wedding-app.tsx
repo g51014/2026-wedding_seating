@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { displayGuestName } from "@/data/guests"
 import { TABLE_ORDER, tableById, totalSeats } from "@/data/venue"
 import {
   downloadJson,
@@ -133,7 +134,7 @@ export function WeddingApp() {
                     variant="outline"
                     onClick={() => handleSelect(hit.tableId)}
                   >
-                    {table?.id === "head" ? "主桌" : `${table?.label} 桌`} · {hit.seat} 號 · {hit.name}
+                    {table?.id === "head" ? "主桌" : `${table?.label} 桌`} · {hit.seat} 號 · {displayGuestName(hit.name)}
                   </Button>
                 )
               })}
@@ -201,7 +202,7 @@ export function WeddingApp() {
 
           <TabsContent value="roster" className="print:hidden">
             <div className="mb-4 rounded-xl border border-amber-200 bg-[#fffaf3] p-4 text-sm leading-relaxed text-[#7c2d12]">
-              場地與示意圖相同：左 11 桌、右 10 桌。新郎好友 13、14 桌已排滿。14 桌另備兒童座椅 1（廖宇軒小朋友，不佔主位）。15、20 桌超額 11 席（圓桌 10 位）。男方其餘：主桌、12 魏爺爺親友、15 江家長輩、16／17／19 楊家、18／20／21 江爸爸好友、22 備用。女方：1／2 艾克森、3／11 萬里雲、7 仁寶、8 創順與好友、6 媽媽親戚、5／9／10 爸爸親戚。主桌女方為林活汶、葉秋華、葉秋英、鄭森義。
+              場地與示意圖相同：左 11 桌、右 10 桌。新郎好友 13、14 桌已排滿。14 桌另備兒童座椅 1（廖宇軒小朋友，不佔主位）。15 桌超額 12 席、20 桌超額 11 席（圓桌 10 位）。男方其餘：主桌、12 魏爺爺親友、15 江家長輩、16／17／19 楊家、18／20／21 江爸爸好友、22 備用。女方：1／2 艾克森、3／11 萬里雲、7 仁寶、8 創順與好友、6 媽媽親戚、5／9／10 爸爸親戚。主桌女方為林活汶、葉秋華、葉秋英、鄭森義。
             </div>
             <RosterList
               guests={guests}

@@ -28,8 +28,8 @@ export const WORD_GUESTS: Record<string, string[]> = {
     "葉秋英（新娘長輩）",
     "鄭森義（新娘長輩）",
     "張榮興（警政署長）",
-    "魏爺爺（新郎父親乾爸）",
-    "魏奶奶（新郎父親乾媽）",
+    "魏志名（新郎父親乾爸）",
+    "林梅仙（新郎父親乾媽）",
     "黃競良（新郎奶奶）",
     "楊秋玉（新郎母親）",
     "江守寰（新郎父親）·不吃牛",
@@ -47,17 +47,18 @@ export const WORD_GUESTS: Record<string, string[]> = {
     "許嘉樺",
   ],
   "2": [
-    "江銘君（大姑姑）",
-    "黃洲祥（小姑爹）",
-    "阮阿綢（親家）·不吃牛",
-    "張巧玲（雅媛大妹）",
+    "江銘君（新郎大姑姑）",
+    "黃洲祥（新郎小姑爹）",
+    "阮阿綢·不吃牛",
+    "張巧玲",
     "張雅媛·不吃牛",
     "江紀威",
-    "江述禾（孫子）",
+    "江述禾",
     "林娓華（警政署督察室辦事員）",
     "簡達人（基隆警局資訊科長）",
     "簡達人 2",
     "李添益（行政院參議）",
+    "游本明（新郎表姊）",
   ],
   "3": [
     "楊秋姍",
@@ -81,7 +82,7 @@ export const WORD_GUESTS: Record<string, string[]> = {
     "楊秋玲 7",
     "楊秋琪",
     "楊秋琪 2",
-    "楊秋瑛（大姐）",
+    "楊秋瑛",
   ],
   "6": [
     "楊秋瑛",
@@ -180,7 +181,7 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "Tric",
     "Zmic（艾克森）",
     "宋玉琨／Lauren",
-    "林伯瑾",
+    "林伯瑾·素食",
     "王崧豪",
     "陳癸庚／Brandan",
     "陳諭",
@@ -224,6 +225,8 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "吳孟錡、許嘉晏 2（仁寶）",
     "吳孟錡、許嘉晏 3（仁寶）",
     "李於軒（創順）",
+    "吳宜蒨",
+    "林佳倪",
   ],
   "6": [
     "尤晟彥",
@@ -237,7 +240,7 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "鄭諺隆",
   ],
   "5": [
-    "林淑惠（姑姑）",
+    "林淑惠（新娘姑姑）",
     "林淑惠 2",
     "林淑惠 3",
     "林淑惠 4",
@@ -257,11 +260,11 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "林瑞鴻 4",
   ],
   "10": [
-    "林煜峰（哥哥）",
+    "林煜峰（新娘哥哥）",
     "葉斯櫻",
     "葉斯櫻 2",
     "葉斯櫻 3",
-    "鄭育萱（二阿姨）",
+    "鄭育萱（新娘二阿姨）",
     "鄭育萱 2",
     "鄭育萱 3",
     "鄭育萱 4",
@@ -289,4 +292,9 @@ export function isVegetarian(name: string) {
 
 export function isNoBeef(name: string) {
   return name.includes("不吃牛")
+}
+
+/** 畫面顯示用：飲食禁忌改由座號顏色表示，不重複寫在姓名後。 */
+export function displayGuestName(name: string) {
+  return name.replace(/·不吃牛/g, "").replace(/·素食/g, "").trim()
 }

@@ -1,8 +1,10 @@
 "use client"
 
 import { Input } from "@/components/ui/input"
+import { displayGuestName, isNoBeef, isVegetarian } from "@/data/guests"
 import { tableById } from "@/data/venue"
 import { RoundTable } from "@/components/round-table"
+import { SeatNumber } from "@/components/seat-number"
 
 type TableDetailProps = {
   tableId: string
@@ -24,10 +26,7 @@ export function TableDetail({ tableId, guests, onChange }: TableDetailProps) {
           {table.id === "head" ? "主桌" : `${table.label} 桌`}
         </p>
         <p className="text-sm text-[#92400e]">{table.title}</p>
-        <p className="text-xs text-[#92400e]">
-          {table.zone}
-          {table.diet ? ` · ${table.diet}` : ""}
-        </p>
+        <p className="text-xs text-[#92400e]">{table.zone}</p>
         <p className="mt-1 text-xs text-muted-foreground">
           紅點為 1 號位（近舞台左上），其餘順時針。主桌 12 席，其餘 10 席。
         </p>
@@ -49,27 +48,26 @@ export function TableDetail({ tableId, guests, onChange }: TableDetailProps) {
       <ol className="grid grid-cols-1 gap-2">
         {Array.from({ length: seats }, (_, i) => {
           const seat = i + 1
-          const veg = (guests[i] ?? "").includes("素食")
-          const noBeef = (guests[i] ?? "").includes("不吃牛")
+          const name = guests[i] ?? ""
           return (
             <li key={seat} className="flex items-center gap-2">
-              <span
-                className={`flex size-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-                  seat === 1
-                    ? "bg-rose-600 text-white"
-                    : veg
-                      ? "bg-green-700 text-white"
-                      : noBeef
-                        ? "bg-pink-300 text-pink-950"
-                        : "bg-amber-100 text-amber-900"
-                }`}
-              >
-                {seat}
-              </span>
+              <SeatNumber seat={seat} name={name} />
               <Input
-                value={guests[i] ?? ""}
+                value={displayGuestName(name)}
                 placeholder={`${seat} 號位`}
-                onChange={(e) => onChange(seat, e.target.value)}
+                onChange={(e) => {
+                  const next = displayGuestName(e.target.value)
+                  if (!next) {
+                    onChange(seat, "")
+                    return
+                  }
+                  const diet = isVegetarian(name)
+                    ? "·素食"
+                    : isNoBeef(name)
+                      ? "·不吃牛"
+                      : ""
+                  onChange(seat, next + diet)
+                }}
                 className="h-8 bg-white"
               />
             </li>

@@ -2,6 +2,8 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { SeatNumber } from "@/components/seat-number"
+import { displayGuestName } from "@/data/guests"
 import { TABLE_ORDER, tableById } from "@/data/venue"
 import type { GuestMap } from "@/lib/seating"
 
@@ -33,34 +35,15 @@ export function RosterList({ guests, onSelect }: RosterProps) {
                 </Badge>
               </div>
               <p className="text-xs text-[#92400e]">{table.title}</p>
-              <p className="text-xs text-muted-foreground">
-                {table.zone}
-                {table.diet ? ` · ${table.diet}` : ""}
-              </p>
+              <p className="text-xs text-muted-foreground">{table.zone}</p>
             </CardHeader>
             <CardContent>
-              <ol className="space-y-1 text-sm">
+              <ol className="space-y-1.5 text-sm">
                 {guests[id].map((name, index) => (
-                  <li key={index} className="flex gap-2">
-                    <span
-                      className={`w-10 shrink-0 font-medium ${
-                        index === 0 ? "text-rose-700" : "text-amber-800"
-                      }`}
-                    >
-                      {index + 1}號
-                    </span>
-                    <span
-                      className={
-                        name
-                          ? name.includes("素食")
-                            ? "text-green-800"
-                            : name.includes("不吃牛")
-                              ? "text-pink-700"
-                              : "text-foreground"
-                          : "text-muted-foreground"
-                      }
-                    >
-                      {name || "空位"}
+                  <li key={index} className="flex items-center gap-2">
+                    <SeatNumber seat={index + 1} name={name} />
+                    <span className={name ? "text-foreground" : "text-muted-foreground"}>
+                      {displayGuestName(name) || "空位"}
                     </span>
                   </li>
                 ))}

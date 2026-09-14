@@ -24,7 +24,7 @@
   .chips button { border:1px solid #e7c48a; background:#fff; border-radius:8px; padding:4px 8px; cursor:pointer; font-size:13px; }
   .chips button.on { background:var(--wine); color:#fff7ed; border-color:var(--wine); }
   .seat { display:flex; gap:8px; align-items:flex-start; padding:6px 0; border-bottom:1px solid #f3e6d4; font-size:14px; }
-  .n { width:28px; height:22px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; background:#fde68a; flex-shrink:0; }
+  .n { width:28px; height:28px; border-radius:999px; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; background:#fef3c7; color:#78350f; flex-shrink:0; }
   .n.one { background:var(--rose); color:#fff; }
   .n.veg { background:#15803d; color:#fff; }
   .n.beef { background:#f9a8d4; color:#831843; }
@@ -44,7 +44,7 @@
 <header>
   <div class="sub">2026／10／4 · 江林府 THE GRAND BALLROOM I</div>
   <h1>紀武結婚喜宴場地桌次</h1>
-  <p class="note">場地依 Grand Ballroom I 示意圖：面對舞台<b>左側 11 桌</b>（男方 12–22）、<b>右側 10 桌</b>（女方 1–3、5–11，無 4 號）。新郎好友在左側走道 <b>13、14</b>；14 桌另備兒童座椅 1。<b>15、20 桌超額 11 席</b>（圓桌 10 位）。女方同事好友在右側走道 <b>1、2、3</b>；親屬 5、6、9、10。每椅標座號，紅點為 1 號位，其餘順時針。主桌 12 席，其餘原則 10 席。</p>
+  <p class="note">場地依 Grand Ballroom I 示意圖：面對舞台<b>左側 11 桌</b>（男方 12–22）、<b>右側 10 桌</b>（女方 1–3、5–11，無 4 號）。新郎好友在左側走道 <b>13、14</b>；14 桌另備兒童座椅 1。<b>15 桌超額 12 席、20 桌超額 11 席</b>（圓桌 10 位）。女方同事好友在右側走道 <b>1、2、3</b>；親屬 5、6、9、10。每椅標座號，紅點為 1 號位，其餘順時針。主桌 12 席，其餘原則 10 席。</p>
   <p class="legend"><span class="dot" style="background:#e11d48"></span>1 號位<span class="dot" style="background:#7c2d12"></span>已入座<span class="dot" style="background:#15803d"></span>素食<span class="dot" style="background:#f9a8d4"></span>不吃牛<span class="dot" style="background:#fff7ed;border:1px solid #b45309"></span>空位</p>
 </header>
 <div class="layout">
@@ -59,7 +59,7 @@ const SEAT1 = -126;
 const TABLES = [
   {id:"head", label:"主桌", title:"新郎新娘長輩桌", seats:12, diet:"2 人不吃牛", x:267.5, y:238.3, zone:"舞台前方 · 走道花廊"},
   {id:"1", label:"1", title:"女方艾克森桌", seats:10, diet:"全部葷食", x:314.2, y:309.4, zone:"面向舞台右側 · 走道旁"},
-  {id:"2", label:"2", title:"女方艾克森桌", seats:10, diet:"全部葷食", x:314.1, y:379.1, zone:"面向舞台右側 · 走道旁"},
+  {id:"2", label:"2", title:"女方艾克森桌", seats:10, diet:"1 人素食", x:314.1, y:379.1, zone:"面向舞台右側 · 走道旁"},
   {id:"3", label:"3", title:"女方萬里雲桌", seats:10, diet:"全部葷食", x:314.1, y:452.4, zone:"面向舞台右側 · 走道旁"},
   {id:"6", label:"6", title:"女方媽媽親戚桌", seats:10, diet:"全部葷食", x:369.7, y:269.7, zone:"面向舞台右側 · 中排"},
   {id:"7", label:"7", title:"女方仁寶桌", seats:10, diet:"1 人不吃牛", x:369.8, y:334.9, zone:"面向舞台右側 · 中排"},
@@ -71,7 +71,7 @@ const TABLES = [
   {id:"12", label:"12", title:"金門魏爺爺親友桌", seats:10, diet:"全部葷食", x:214.6, y:308.7, zone:"面向舞台左側 · 走道旁（近主桌）"},
   {id:"13", label:"13", title:"新郎江紀武好友桌", seats:10, diet:"全部葷食", x:214.7, y:378.5, zone:"面向舞台左側 · 走道旁"},
   {id:"14", label:"14", title:"新郎江紀武好友桌", seats:10, diet:"全部葷食 · 另備兒童座椅 1（廖宇軒小朋友，不佔主位）", x:214.6, y:451.8, zone:"面向舞台左側 · 走道旁"},
-  {id:"15", label:"15", title:"江家長輩親友桌（超額 11 席）", seats:11, diet:"2 人不吃牛 · 圓桌 10 位超額 1", x:158.1, y:275.7, zone:"面向舞台左側 · 中排"},
+  {id:"15", label:"15", title:"江家長輩親友桌（超額 12 席）", seats:12, diet:"2 人不吃牛 · 圓桌 10 位超額 2", x:158.1, y:275.7, zone:"面向舞台左側 · 中排"},
   {id:"16", label:"16", title:"楊家長輩親友桌", seats:10, diet:"5 人不吃牛", x:158.1, y:346.9, zone:"面向舞台左側 · 中排"},
   {id:"17", label:"17", title:"楊家長輩親友桌", seats:10, diet:"1 人不吃牛", x:158.2, y:414.3, zone:"面向舞台左側 · 中排"},
   {id:"19", label:"19", title:"楊家長輩親友桌", seats:10, diet:"全部葷食", x:158.1, y:476.4, zone:"面向舞台左側 · 中排"},
@@ -82,11 +82,11 @@ const TABLES = [
 ];
 const ORDER = ["head","12","13","14","15","16","17","18","19","20","21","22","1","2","3","5","6","7","8","9","10","11"];
 const GUESTS = {
-  head:["江紀武（新郎）","林鈺瑾（新娘）","林活汶（新娘父親）","葉秋華（新娘母親）·不吃牛","葉秋英（新娘長輩）","鄭森義（新娘長輩）","張榮興（警政署長）","魏爺爺（新郎父親乾爸）","魏奶奶（新郎父親乾媽）","黃競良（新郎奶奶）","楊秋玉（新郎母親）","江守寰（新郎父親）·不吃牛"],
+  head:["江紀武（新郎）","林鈺瑾（新娘）","林活汶（新娘父親）","葉秋華（新娘母親）·不吃牛","葉秋英（新娘長輩）","鄭森義（新娘長輩）","張榮興（警政署長）","魏志名（新郎父親乾爸）","林梅仙（新郎父親乾媽）","黃競良（新郎奶奶）","楊秋玉（新郎母親）","江守寰（新郎父親）·不吃牛"],
   "12":["魏靜瑄（新郎父親乾姑姑）","魏銘龍（新郎父親乾弟弟）","陳德樹","陳德樹 2","彭兼昌","張文興","伊金泉","翁李源","林弘曜","許嘉樺"],
-  "15":["江銘君（大姑姑）","黃洲祥（小姑爹）","阮阿綢（親家）·不吃牛","張巧玲（雅媛大妹）","張雅媛·不吃牛","江紀威","江述禾（孫子）","林娓華（警政署督察室辦事員）","簡達人（基隆警局資訊科長）","簡達人 2","李添益（行政院參議）"],
+  "15":["江銘君（新郎大姑姑）","黃洲祥（新郎小姑爹）","阮阿綢·不吃牛","張巧玲","張雅媛·不吃牛","江紀威","江述禾","林娓華（警政署督察室辦事員）","簡達人（基隆警局資訊科長）","簡達人 2","李添益（行政院參議）","游本明（新郎表姊）"],
   "16":["楊秋姍","楊秋姍 2·不吃牛","楊秋姍 3","楊秋姍 4","鄒金鑾·不吃牛","鄒金鑾 2·不吃牛","李冠誼（李秀鳳）","李冠誼（李秀鳳） 2","張如慧·不吃牛","張如慧 2·不吃牛"],
-  "17":["楊秋玲","楊秋玲 2·不吃牛","楊秋玲 3","楊秋玲 4","楊秋玲 5","楊秋玲 6","楊秋玲 7","楊秋琪","楊秋琪 2","楊秋瑛（大姐）"],
+  "17":["楊秋玲","楊秋玲 2·不吃牛","楊秋玲 3","楊秋玲 4","楊秋玲 5","楊秋玲 6","楊秋玲 7","楊秋琪","楊秋琪 2","楊秋瑛"],
   "19":["楊秋瑛","楊秋瑛 2","楊秋瑛 3","楊秋瑛 4","楊秋珍","楊秋珍 2","楊秋珍 3","楊秋珍 4","楊秋珍 5","楊秋珍 6"],
   "18":["張國雄（保一總隊長）","劉傳璽（師大教授）","林國平（前國民黨金門主委）","黃維堅（金門消防局科長）","黃維堅 2","林存讓（新北市警局警友會）","李晃旭","李晃旭 2","張榮貴（Ai3智能公司董事長）","張榮貴 2"],
   "20":["廖恆裕（桃園市警察局長）","張厚齊（警政署專門委員）·素食","潘志成（警政署督察）","潘志成 2","李天文（扶輪社社長）","林茂松（調查局科長）","王英郁（高雄同學）","揚威孫（天威保全董事長）","曾啟彥（高雄市警局督察）","蔡上機（命理大師）","李承龍（警專教授）"],
@@ -94,14 +94,14 @@ const GUESTS = {
   "13":["Taylor 陳俊諺","Taylor 陳俊諺 2","Winnie 王薏雯","Lory 顏慧玲","Lory 顏慧玲 2","Lory 顏慧玲 3","Max 張祐誠","Olivia 呂玗潔","Joyce 曾鈺鈞","Jerry 藍元皇"],
   "14":["Ben 廖宇軒","Ben 廖宇軒 2","Ben 廖宇軒 3","Peggy 石佩玉","George 郭建宏","Quentina 邱婷圓","Allen 王淇生","Eva 蔡依雯","Eva 蔡依雯 2","Dio 張敬暘"],
   "1":["Ada","Ada 2","Ada 3","Hsu Chen Jui","YT","丁志杰／Jeremy","李礴軒／Lester","洪梓翔","王承皓"],
-  "2":["Gino","Shirley","Tric","Zmic（艾克森）","宋玉琨／Lauren","林伯瑾","王崧豪","陳癸庚／Brandan","陳諭","陳諭 2"],
+  "2":["Gino","Shirley","Tric","Zmic（艾克森）","宋玉琨／Lauren","林伯瑾·素食","王崧豪","陳癸庚／Brandan","陳諭","陳諭 2"],
   "3":["Shan（萬里雲）","廖淯婷","廖淯婷 2","廖淯婷 3","恩恩大小姐（萬里雲）","恩恩大小姐 2（萬里雲）","黃雅萱／Lia（萬里雲）"],
   "6":["尤晟彥","尤晟彥 2","楊御書","楊御書 2","葉倫松","葉斯廷","鄭椀云","鄭椀孺","鄭諺隆"],
   "7":["Anita（仁寶）","Anita（仁寶）2","Ethan（仁寶）","Louis（仁寶）","Mindy（仁寶）","Shawn 翁祥恩（仁寶）","廖瑜瑄／Peggy（仁寶）·不吃牛","林振鴻／Neo（仁寶）"],
-  "8":["Hiro","Phoebe","Sara Lyn（創順）","Sara Lyn 2（創順）","吳孟錡、許嘉晏（仁寶）","吳孟錡、許嘉晏 2（仁寶）","吳孟錡、許嘉晏 3（仁寶）","李於軒（創順）"],
-  "5":["林淑惠（姑姑）","林淑惠 2","林淑惠 3","林淑惠 4","林瑞蓉","林瑞蓉 2","林瑞蓉 3","林瑞蓉 4"],
+  "8":["Hiro","Phoebe","Sara Lyn（創順）","Sara Lyn 2（創順）","吳孟錡、許嘉晏（仁寶）","吳孟錡、許嘉晏 2（仁寶）","吳孟錡、許嘉晏 3（仁寶）","李於軒（創順）","吳宜蒨","林佳倪"],
+  "5":["林淑惠（新娘姑姑）","林淑惠 2","林淑惠 3","林淑惠 4","林瑞蓉","林瑞蓉 2","林瑞蓉 3","林瑞蓉 4"],
   "9":["林佳諭","林佳諭 2","林佳諭 3","林武煌","林瑞鴻","林瑞鴻 2","林瑞鴻 3","林瑞鴻 4"],
-  "10":["林煜峰（哥哥）","葉斯櫻","葉斯櫻 2","葉斯櫻 3","鄭育萱（二阿姨）","鄭育萱 2","鄭育萱 3","鄭育萱 4","麥素華"],
+  "10":["林煜峰（新娘哥哥）","葉斯櫻","葉斯櫻 2","葉斯櫻 3","鄭育萱（新娘二阿姨）","鄭育萱 2","鄭育萱 3","鄭育萱 4","麥素華"],
   "11":["張家瑋／Welly（萬里雲）","張維軒","林敬傑（萬里雲）","林敬傑（萬里雲）","楊季穎／Evelyn（萬里雲）","楊季穎 2","陳子揚／Jeff Chen（萬里雲）","陳楷榮／Aaron（萬里雲）"]
 };
 function names(id){ return (GUESTS[id] || []).concat(Array(12).fill("")).slice(0, byId(id).seats); }
@@ -110,7 +110,9 @@ function pt(cx,cy,r,seat,seats){
   const rad = (SEAT1 + (seat-1)*(360/seats)) * Math.PI/180;
   return {x: cx + r*Math.cos(rad), y: cy + r*Math.sin(rad)};
 }
-function shortName(n){ return (n||"").replace(/·不吃牛/,"").replace(/·素食/,"").replace(/（/g,"(").split("(")[0].trim().slice(0,5); }
+function shortName(n){ return displayName(n).replace(/（/g,"(").split("(")[0].trim().slice(0,5); }
+function displayName(n){ return (n||"").replace(/·不吃牛/g,"").replace(/·素食/g,"").trim(); }
+function dietClass(n,i){ return i===0?"one":(n||"").includes("素食")?"veg":(n||"").includes("不吃牛")?"beef":""; }
 let selected = "head";
 
 function draw(){
@@ -154,8 +156,8 @@ function panel(){
   document.getElementById("panel").innerHTML = `
     <div class="chips">${chips}</div>
     <h2>${t.id==="head"?"主桌":t.label+" 桌"}</h2>
-    <div class="muted">${t.title}${t.diet?" · "+t.diet:""}<br>${t.zone}</div>
-    ${ns.map((n,i)=>`<div class="seat"><span class="n ${i===0?"one":(n.includes("素食")?"veg":n.includes("不吃牛")?"beef":"")}">${i+1}</span><span class="${n?"":"empty"}">${n||"空位"}</span></div>`).join("")}
+    <div class="muted">${t.title}<br>${t.zone}</div>
+    ${ns.map((n,i)=>`<div class="seat"><span class="n ${dietClass(n,i)}">${i+1}</span><span class="${n?"":"empty"}">${displayName(n)||"空位"}</span></div>`).join("")}
   `;
   document.querySelectorAll(".chips button").forEach(b => b.onclick = () => { selected=b.dataset.id; render(); });
 }
@@ -167,8 +169,8 @@ function roster(){
     const filled = ns.filter(Boolean).length;
     return `<article class="card" data-id="${id}">
       <h3>${id==="head"?"主桌":t.label+" 桌"} <small style="font-weight:400;color:#b45309">${filled}/${t.seats}</small></h3>
-      <div class="muted">${t.title}${t.diet?" · "+t.diet:""}</div>
-      <ol>${ns.map((n,i)=>`<li class="seat"><span class="n ${i===0?"one":""}">${i+1}</span><span class="${n?"":"empty"}">${n||"空位"}</span></li>`).join("")}</ol>
+      <div class="muted">${t.title}</div>
+      <ol>${ns.map((n,i)=>`<li class="seat"><span class="n ${dietClass(n,i)}">${i+1}</span><span class="${n?"":"empty"}">${displayName(n)||"空位"}</span></li>`).join("")}</ol>
     </article>`;
   }).join("");
   document.querySelectorAll(".card").forEach(c => c.onclick = () => { selected=c.dataset.id; render(); window.scrollTo({top:0,behavior:"smooth"}); });
