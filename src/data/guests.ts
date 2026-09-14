@@ -188,7 +188,6 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "陳諭 2",
   ],
   "3": [
-    "Shan（萬里雲）",
     "廖淯婷",
     "廖淯婷 2",
     "廖淯婷 3",
