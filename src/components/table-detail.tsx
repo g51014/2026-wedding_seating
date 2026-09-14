@@ -60,7 +60,7 @@ export function TableDetail({ tableId, guests, onChange }: TableDetailProps) {
                     : veg
                       ? "bg-green-700 text-white"
                       : noBeef
-                        ? "bg-teal-700 text-white"
+                        ? "bg-pink-300 text-pink-950"
                         : "bg-amber-100 text-amber-900"
                 }`}
               >

@@ -63,7 +63,7 @@ export function RoundTable({
         const labelPos = showNames
           ? seatPoint(table.x, table.y, chairs + 14, seat, seats)
           : p
-        const lightOnChair = seat === 1 || veg || noBeef || filled
+        const lightOnChair = seat === 1 || veg || (filled && !noBeef)
         return (
           <g
             key={seat}
@@ -83,7 +83,7 @@ export function RoundTable({
                   : veg
                     ? "#15803d"
                     : noBeef
-                      ? "#0f766e"
+                      ? "#f9a8d4"
                       : matched
                         ? "#d97706"
                         : filled

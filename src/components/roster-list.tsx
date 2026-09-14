@@ -55,7 +55,7 @@ export function RosterList({ guests, onSelect }: RosterProps) {
                           ? name.includes("素食")
                             ? "text-green-800"
                             : name.includes("不吃牛")
-                              ? "text-teal-800"
+                              ? "text-pink-700"
                               : "text-foreground"
                           : "text-muted-foreground"
                       }
