@@ -4,10 +4,11 @@ import { cn } from "@/lib/utils"
 type SeatNumberProps = {
   seat: number
   name?: string
+  spare?: boolean
   className?: string
 }
 
-export function SeatNumber({ seat, name = "", className }: SeatNumberProps) {
+export function SeatNumber({ seat, name = "", spare = false, className }: SeatNumberProps) {
   const veg = isVegetarian(name)
   const noBeef = isNoBeef(name)
   return (
@@ -20,7 +21,9 @@ export function SeatNumber({ seat, name = "", className }: SeatNumberProps) {
             ? "bg-green-700 text-white"
             : noBeef
               ? "bg-pink-300 text-pink-950"
-              : "bg-amber-100 text-amber-900",
+              : spare
+                ? "bg-cyan-700 text-white"
+                : "bg-amber-100 text-amber-900",
         className
       )}
     >

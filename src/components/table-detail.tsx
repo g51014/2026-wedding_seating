@@ -2,9 +2,10 @@
 
 import { Input } from "@/components/ui/input"
 import { displayGuestName, isNoBeef, isVegetarian } from "@/data/guests"
-import { tableById } from "@/data/venue"
+import { extraChairCount, isSpareCoverSeat, tableById } from "@/data/venue"
 import { RoundTable } from "@/components/round-table"
 import { SeatNumber } from "@/components/seat-number"
+import { TableDietNote } from "@/components/table-diet-note"
 
 type TableDetailProps = {
   tableId: string
@@ -27,10 +28,27 @@ export function TableDetail({ tableId, guests, onChange }: TableDetailProps) {
         </p>
         <p className="text-sm text-[#92400e]">{table.title}</p>
         <p className="text-xs text-[#92400e]">{table.zone}</p>
+        {table.spareCovers && table.coverTo ? (
+          <p className="mt-1 text-xs text-cyan-800">
+            本桌空 {table.spareCovers} 席列為移餐額度：餐具移給 {table.coverTo} 桌加椅，不另收費。
+          </p>
+        ) : null}
+        {table.coverFrom ? (
+          <p className="mt-1 text-xs text-cyan-800">
+            超額 {extraChairCount(table)} 席：餐具由 {table.coverFrom} 桌空位調配。
+          </p>
+        ) : null}
+        {table.id === "10" ? (
+          <p className="mt-1 text-xs text-[#92400e]">整桌預備，空位不列入移餐額度。</p>
+        ) : null}
+        {table.id === "9" ? (
+          <p className="mt-1 text-xs text-[#92400e]">空 2 席保留給本桌，不移餐。</p>
+        ) : null}
         <p className="mt-1 text-xs text-muted-foreground">
-          紅點為 1 號位（近舞台左上），其餘順時針。主桌 12 席，其餘 10 席。
+          紅點為 1 號位（近舞台左上），其餘順時針。主桌 12 席，其餘原則 10 席。
         </p>
       </div>
+      <TableDietNote guests={guests} />
 
       <svg viewBox="0 0 320 340" className="mx-auto h-auto w-full max-w-[320px]">
         <circle cx="160" cy="160" r="150" fill="#f8ead0" />
@@ -49,12 +67,15 @@ export function TableDetail({ tableId, guests, onChange }: TableDetailProps) {
         {Array.from({ length: seats }, (_, i) => {
           const seat = i + 1
           const name = guests[i] ?? ""
+          const spare = !name && isSpareCoverSeat(table, guests, seat)
           return (
             <li key={seat} className="flex items-center gap-2">
-              <SeatNumber seat={seat} name={name} />
+              <SeatNumber seat={seat} name={name} spare={spare} />
               <Input
                 value={displayGuestName(name)}
-                placeholder={`${seat} 號位`}
+                placeholder={
+                  spare ? `${seat} 號位（移餐）` : table.id === "10" ? `${seat} 號位（預備）` : `${seat} 號位`
+                }
                 onChange={(e) => {
                   const next = displayGuestName(e.target.value)
                   if (!next) {

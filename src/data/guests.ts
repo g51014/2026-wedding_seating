@@ -159,7 +159,7 @@ export const WORD_GUESTS: Record<string, string[]> = {
 
 /**
  * 女方確認版（排位鷗鷗分組）。鍵為場地桌號。
- * 面對舞台右側：同事／好友優先走道 1–3，親屬靠牆與中排。
+ * 面對舞台右側：同事／好友走道 1–3；8 仁寶；10 預備桌。
  */
 export const BRIDE_GUESTS: Record<string, string[]> = {
   "1": [
@@ -172,6 +172,9 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "李礴軒／Lester",
     "洪梓翔",
     "王承皓",
+    "恩恩大小姐（萬里雲）",
+    "恩恩大小姐 2（萬里雲）",
+    "黃雅萱／Lia（萬里雲）",
   ],
   "2": [
     "Gino",
@@ -185,14 +188,6 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "陳諭",
     "陳諭 2",
   ],
-  "3": [
-    "廖淯婷",
-    "廖淯婷 2",
-    "廖淯婷 3",
-    "恩恩大小姐（萬里雲）",
-    "恩恩大小姐 2（萬里雲）",
-    "黃雅萱／Lia（萬里雲）",
-  ],
   "11": [
     "張家瑋／Welly（萬里雲）",
     "張維軒",
@@ -202,6 +197,8 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "楊季穎 2",
     "陳子揚／Jeff Chen（萬里雲）",
     "陳楷榮／Aaron（萬里雲）",
+    "許安宇（萬里雲）",
+    "玉陽（萬里雲）",
   ],
   "7": [
     "林煜峰（新娘哥哥）",
@@ -214,7 +211,7 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "鄭育萱 4",
     "麥素華",
   ],
-  "8": [
+  "3": [
     "Hiro",
     "Phoebe",
     "Sara Lyn（創順）",
@@ -223,8 +220,9 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "吳孟錡、許嘉晏 2（仁寶）",
     "吳孟錡、許嘉晏 3（仁寶）",
     "李於軒（創順）",
-    "吳宜蒨",
-    "林佳倪",
+    "廖淯婷",
+    "廖淯婷 2",
+    "廖淯婷 3",
   ],
   "6": [
     "尤晟彥",
@@ -257,7 +255,7 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "林瑞鴻 3",
     "林瑞鴻 4",
   ],
-  "10": [
+  "8": [
     "Anita（仁寶）",
     "Anita（仁寶）2",
     "Ethan（仁寶）",
@@ -266,6 +264,8 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
     "Shawn 翁祥恩（仁寶）",
     "廖瑜瑄／Peggy（仁寶）·不吃牛",
     "林振鴻／Neo（仁寶）",
+    "吳宜蒨",
+    "林佳倪",
   ],
 }
 

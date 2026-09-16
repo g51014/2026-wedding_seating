@@ -46,7 +46,7 @@ export function SeatLegend() {
         </text>
       </svg>
       <p className="text-xs leading-relaxed text-[#92400e]">
-        紅點為 1 號位；其餘順時針。主桌 12 席，其餘圓桌 10 席。綠點為素食，粉點為不吃牛。
+        紅點為 1 號位；其餘順時針。主桌 12 席，其餘圓桌原則 10 席。綠點為素食，粉點為不吃牛，青點為移餐額度（空位移出餐具）。
       </p>
     </div>
   )

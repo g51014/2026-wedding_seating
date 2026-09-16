@@ -2,7 +2,7 @@
 
 import type { MouseEvent, PointerEvent } from "react"
 
-import { seatPoint, shortName, type TableDef } from "@/data/venue"
+import { isSpareCoverSeat, seatPoint, shortName, type TableDef } from "@/data/venue"
 
 type RoundTableProps = {
   table: TableDef
@@ -59,11 +59,12 @@ export function RoundTable({
         const filled = Boolean(guests[i])
         const veg = (guests[i] ?? "").includes("素食")
         const noBeef = (guests[i] ?? "").includes("不吃牛")
+        const spare = !filled && isSpareCoverSeat(table, guests, seat)
         const label = showNames ? shortName(guests[i]) || `${seat}` : String(seat)
         const labelPos = showNames
           ? seatPoint(table.x, table.y, chairs + 14, seat, seats)
           : p
-        const lightOnChair = seat === 1 || veg || (filled && !noBeef)
+        const lightOnChair = seat === 1 || veg || spare || (filled && !noBeef)
         return (
           <g
             key={seat}
@@ -88,7 +89,9 @@ export function RoundTable({
                         ? "#d97706"
                         : filled
                           ? "#7c2d12"
-                          : "#fff7ed"
+                          : spare
+                            ? "#0e7490"
+                            : "#fff7ed"
               }
               stroke={seat === 1 ? "#9f1239" : selected ? "#b45309" : "#b45309"}
               strokeWidth={seat === 1 ? 1.6 : 1}

@@ -8,6 +8,7 @@ import { FloorPlan } from "@/components/floor-plan"
 import { RosterList } from "@/components/roster-list"
 import { SeatLegend } from "@/components/seat-legend"
 import { TableDetail } from "@/components/table-detail"
+import { PrintMenu, WeddingMenu } from "@/components/wedding-menu"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -69,7 +70,7 @@ export function WeddingApp() {
               阿武喜宴場地桌次
             </h1>
             <p className="mt-1 max-w-xl text-sm text-[#92400e]">
-              場地依 Grand Ballroom I 示意圖：面對舞台左側 11 桌（男方 12–22）、右側 10 桌（女方 1–3、5–11，無 4 號）。新郎好友在左側走道 13、14；14 桌另備兒童座椅 1。女方同事好友在右側走道 1、2、3；親屬 5、6、7、9。紅點為 1 號位，順時針。
+              場地依 Grand Ballroom I 示意圖：面對舞台左側 10 桌（男方 12–21）、右側 10 桌（女方 1–3、5–11，無 4 號）。新郎好友在左側走道 13、14；14 桌另備兒童座椅 1。女方同事好友在右側走道 1、2、3；親屬 5、6、7、9。紅點為 1 號位，順時針。
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -107,9 +108,10 @@ export function WeddingApp() {
       <main className="mx-auto max-w-[1600px] px-4 py-4">
           <Tabs value={tab} onValueChange={(value) => { if (typeof value === "string") setTab(value) }}>
           <div className="mb-3 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between print:hidden">
-            <TabsList>
+            <TabsList className="h-auto min-h-8 flex-wrap">
               <TabsTrigger value="map">場地圖</TabsTrigger>
               <TabsTrigger value="roster">完整桌次名單</TabsTrigger>
+              <TabsTrigger value="menu">宴席菜單</TabsTrigger>
               <TabsTrigger value="source">原圖對照</TabsTrigger>
             </TabsList>
             <div className="relative max-w-sm flex-1">
@@ -132,7 +134,10 @@ export function WeddingApp() {
                     key={`${hit.tableId}-${hit.seat}`}
                     size="sm"
                     variant="outline"
-                    onClick={() => handleSelect(hit.tableId)}
+                    onClick={() => {
+                      handleSelect(hit.tableId)
+                      setTab("map")
+                    }}
                   >
                     {table?.id === "head" ? "主桌" : `${table?.label} 桌`} · {hit.seat} 號 · {displayGuestName(hit.name)}
                   </Button>
@@ -202,7 +207,7 @@ export function WeddingApp() {
 
           <TabsContent value="roster" className="print:hidden">
             <div className="mb-4 rounded-xl border border-amber-200 bg-[#fffaf3] p-4 text-sm leading-relaxed text-[#7c2d12]">
-              場地與示意圖相同：左 11 桌、右 10 桌。新郎好友 13、14 桌已排滿。14 桌另備兒童座椅 1（廖宇軒小朋友，不佔主位）。17 桌超額 11 席（圓桌 10 位）。男方其餘：主桌、12 魏爺爺親友、15 江家長輩、16／17／19 爸爸同學友人、18／20／21 楊家親友、22 備用。女方：1／2 艾克森、3／11 萬里雲、10 仁寶、8 創順與好友、6 媽媽親戚、5／7／9 爸爸親戚。主桌女方為林活汶、葉秋華、葉秋英、鄭森義。
+              場地與示意圖相同：左 10 桌（12–21）、右 10 桌。新郎好友 13、14 桌已排滿。14 桌另備兒童座椅 1（廖宇軒小朋友，不佔主位）。客桌最多可加兩張椅子，餐具由他桌空位移用。超額：1 桌 +2（餐自 5 桌）、3 桌 +1（餐自 7 桌）、17 桌 +1（餐自 6 桌）。移餐額度：5 桌空 2、6 桌空 1、7 桌空 1。9 桌空 2 與 10 桌預備不移餐。男方：主桌、12 魏爺爺親友、15 江家長輩、16／17／19 爸爸同學友人、18／20／21 楊家親友。女方：1／2 艾克森（1 桌含萬里雲）、3 創順與好友、11 萬里雲、8 仁寶、6 媽媽親戚、5／7／9 爸爸親戚、10 預備桌。主桌女方為林活汶、葉秋華、葉秋英、鄭森義。
             </div>
             <RosterList
               guests={guests}
@@ -218,7 +223,21 @@ export function WeddingApp() {
             <RosterList guests={guests} onSelect={handleSelect} />
           </div>
 
-          <TabsContent value="source">
+          <TabsContent value="menu" className="print:hidden">
+            <WeddingMenu
+              guests={guests}
+              onSelectTable={(id) => {
+                handleSelect(id)
+                setTab("map")
+              }}
+            />
+          </TabsContent>
+
+          <div className="print-break hidden print:block">
+            <PrintMenu guests={guests} />
+          </div>
+
+          <TabsContent value="source" className="print:hidden">
             <div className="grid gap-4 md:grid-cols-2">
               <figure className="rounded-2xl border border-amber-200 bg-white p-3">
                 <Image
