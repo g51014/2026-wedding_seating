@@ -67,7 +67,7 @@ export function WeddingApp() {
               2026/10/4 · 江林府喜宴
             </p>
             <h1 className="font-heading text-2xl font-semibold text-[#7c2d12] md:text-3xl">
-              阿武喜宴場地桌次
+              2026-10-04 William & Jill 婚宴桌次安排
             </h1>
             <p className="mt-1 max-w-xl text-sm text-[#92400e]">
               場地依 Grand Ballroom I 示意圖：面對舞台左側 10 桌（男方 12–21）、右側 10 桌（女方 1–3、5–11，無 4 號）。新郎好友在左側走道 13、14；14 桌另備兒童座椅 1。女方同事好友在右側走道 1、2、3；親屬 5、6、7、9。紅點為 1 號位，順時針。

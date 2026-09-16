@@ -18,7 +18,7 @@ const serif = Noto_Serif_TC({
 })
 
 export const metadata: Metadata = {
-  title: "阿武喜宴場地桌次｜江林府 Grand Ballroom I",
+  title: "2026-10-04 William & Jill 婚宴桌次安排",
   description: "1004 江林府喜宴完整場地桌次圖。1 號位為近舞台左上紅點，其餘順時針排列。",
 }
 
