@@ -28,15 +28,38 @@
   .n.one { background:var(--rose); color:#fff; }
   .n.veg { background:#15803d; color:#fff; }
   .n.beef { background:#f9a8d4; color:#831843; }
+  .n.spare { background:#0e7490; color:#fff; }
   .empty { color:#a8a29e; }
   .roster { max-width:1400px; margin:0 auto 40px; padding:0 16px; display:grid; gap:12px; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); }
   .card { background:var(--paper); border:1px solid #f0d9b0; border-radius:14px; padding:14px; }
   .card h3 { margin:0 0 4px; color:var(--wine); }
   .muted { font-size:12px; color:var(--gold); margin-bottom:8px; }
+  .diet-note { margin:10px 0 14px; padding:10px 12px; border:1px solid #f0d9b0; border-radius:10px; background:#fffdf8; font-size:12px; line-height:1.55; color:var(--wine); }
+  .diet-note.ok { border-style:dashed; color:var(--gold); }
+  .pill { display:inline-block; margin:0 4px 4px 0; padding:1px 8px; border-radius:999px; font-size:11px; }
+  .pill.beef { background:#f9a8d4; color:#831843; }
+  .pill.spare { background:#0e7490; color:#fff; }
+  .menu-wrap { max-width:1400px; margin:0 auto 48px; padding:0 16px; display:grid; gap:16px; grid-template-columns:minmax(0,1fr) 360px; }
+  @media (max-width: 980px) { .menu-wrap { grid-template-columns:1fr; } }
+  .menu-card, .kitchen { background:var(--paper); border:1px solid #f0d9b0; border-radius:16px; padding:20px; }
+  .menu-card h2 { margin:8px 0 4px; text-align:center; color:var(--wine); }
+  .menu-card .hotel { text-align:center; letter-spacing:.28em; font-size:12px; color:var(--gold); }
+  .menu-card h3 { margin:18px 0 8px; color:var(--wine); font-size:18px; border-bottom:1px solid #f0d9b0; padding-bottom:4px; }
+  .menu-card li { margin:0 0 10px; }
+  .menu-card .en { font-size:12px; color:var(--gold); }
+  .mark { display:inline-block; margin-left:6px; padding:0 6px; border-radius:999px; border:1px solid #e7c48a; font-size:11px; color:var(--gold); }
+  .mark.beef { background:#f9a8d4; color:#831843; border-color:#f9a8d4; }
+  .menu-card img { width:100%; height:auto; border-radius:12px; background:#fff; }
+  .menu-card ul { margin:0; padding:0; list-style:none; }
+  .kitchen { max-width:1400px; margin:0 auto 24px; }
+  .kitchen h2 { margin:0 0 8px; color:var(--wine); font-size:18px; }
+  .kitchen li { margin:0 0 10px; font-size:14px; }
   ol { margin:0; padding:0; list-style:none; }
   @media print {
     aside, .chips { break-inside: avoid; }
     header { padding-bottom:0; }
+    .menu-wrap { grid-template-columns:1fr; }
+    .menu-card img { display:none; }
   }
 </style>
 </head>
@@ -44,8 +67,8 @@
 <header>
   <div class="sub">2026／10／4 · 江林府 THE GRAND BALLROOM I</div>
   <h1>紀武結婚喜宴場地桌次</h1>
-  <p class="note">場地依 Grand Ballroom I 示意圖：面對舞台<b>左側 11 桌</b>（男方 12–22）、<b>右側 10 桌</b>（女方 1–3、5–11，無 4 號）。新郎好友在左側走道 <b>13、14</b>；14 桌另備兒童座椅 1。<b>17 桌超額 11 席</b>（圓桌 10 位）。女方同事好友在右側走道 <b>1、2、3</b>；親屬 5、6、7、9。每椅標座號，紅點為 1 號位，其餘順時針。主桌 12 席，其餘原則 10 席。</p>
-  <p class="legend"><span class="dot" style="background:#e11d48"></span>1 號位<span class="dot" style="background:#7c2d12"></span>已入座<span class="dot" style="background:#15803d"></span>素食<span class="dot" style="background:#f9a8d4"></span>不吃牛<span class="dot" style="background:#fff7ed;border:1px solid #b45309"></span>空位</p>
+  <p class="note">場地依 Grand Ballroom I 示意圖：面對舞台<b>左側 10 桌</b>（男方 12–21）、<b>右側 10 桌</b>（女方 1–3、5–11，無 4 號）。新郎好友在左側走道 <b>13、14</b>；14 桌另備兒童座椅 1。客桌最多可加兩張椅子。<b>移餐額度：5 桌空 2→1 桌、7 桌空 1→3 桌、6 桌空 1→17 桌</b>。9 桌空 2 與 10 桌預備不移餐。每椅標座號，紅點為 1 號位，其餘順時針。主桌 12 席，其餘原則 10 席。</p>
+  <p class="legend"><span class="dot" style="background:#e11d48"></span>1 號位<span class="dot" style="background:#7c2d12"></span>已入座<span class="dot" style="background:#15803d"></span>素食<span class="dot" style="background:#f9a8d4"></span>不吃牛<span class="dot" style="background:#0e7490"></span>移餐額度<span class="dot" style="background:#fff7ed;border:1px solid #b45309"></span>空位／預備</p>
 </header>
 <div class="layout">
   <div class="map">
@@ -54,33 +77,75 @@
   <aside id="panel"></aside>
 </div>
 <section class="roster" id="roster"></section>
+<section class="kitchen" id="kitchen"></section>
+<section class="menu-wrap">
+  <article class="menu-card">
+    <p class="hotel">文華東方酒店</p>
+    <h2>中式婚宴菜單</h2>
+    <p class="muted" style="text-align:center">Chinese Wedding Menu<br>「迎賓風味小碟」和「文華東方拼盤」會放在桌面玻璃轉台上供賓客自行取用。</p>
+    <h3>迎賓風味小碟</h3>
+    <ul>
+      <li>松露白果蔦蘑菇<span class="mark">轉台</span><div class="en">Truffle, Ginkgo, Wild Mushroom, Marinated</div></li>
+      <li>琥珀糖漬芝麻核桃<span class="mark">轉台</span><div class="en">Walnut, Sesame Seeds, Candied</div></li>
+      <li>椒麻雲耳素雞捲<span class="mark">轉台</span><div class="en">Bean Curd Roll, Fungus, Chili Sauce, Braised</div></li>
+    </ul>
+    <h3>文華東方拼盤</h3>
+    <ul>
+      <li>青花椒滷美國牛腱<span class="mark beef">含牛</span><span class="mark">轉台</span><div class="en">U.S. Beef Shank, Sichuan Green Peppercorns（牛肉原產地：美國）</div></li>
+      <li>果木燒烤桃鴨<span class="mark">轉台</span><div class="en">Traditional Yilan Duck, Roasted</div></li>
+      <li>瓦罐玫瑰豉油雞<span class="mark">轉台</span><div class="en">Free Range Chicken, Soya Sauce, Braised</div></li>
+    </ul>
+    <h3>湯與點心</h3>
+    <ul>
+      <li>羊肚菌鮑魚山藥瑤柱燉雞湯<span class="mark">位上／一人一碗</span><div class="en">Abalone, Conpoy, Yam, Morel Mushroom, Chicken Consommé, Double-Boiled</div></li>
+      <li>花好月又圓<span class="mark">轉台自取</span><div class="en">Glutinous Rice Dumpling, Peanut Powder, Deep-Fried</div></li>
+    </ul>
+    <h3>熱菜</h3>
+    <ul>
+      <li>金蒜醬蒸海岩龍躉<span class="mark">位上／每位半隻</span><div class="en">Green Grouper, Garlic Sauce, Steamed</div></li>
+      <li>花菇蟲草蒸點帶石斑<span class="mark">位上</span><div class="en">Rock Lobster, Flower Mushroom, Cordyceps, Steamed</div></li>
+      <li>燒烤紐西蘭小牛肋排佐黑胡椒醬<span class="mark beef">含牛</span><span class="mark">位上</span><div class="en">New Zealand Veal Rack, Black Pepper Sauce, Grilled（牛肉原產地：紐西蘭）</div></li>
+      <li>蟹肉櫻花蝦台式糯米飯<span class="mark">含豬 · 位上</span><div class="en">Crab Meat, Sakura Shrimp, Mushrooms, Glutinous Rice, Steamed（豬肉原產地：台灣）</div></li>
+    </ul>
+    <h3>甜點</h3>
+    <ul>
+      <li>香草奶霜、覆盆子醬、開心果＆檸檬沙布蕾餅乾<span class="mark">位上</span><div class="en">Vanilla Crème, Raspberry Confit, Pistachio &amp; Lemon Sable</div></li>
+      <li>精緻小點<span class="mark">轉台自取</span><div class="en">Petits Fours</div></li>
+    </ul>
+    <p style="text-align:center;color:var(--wine);margin:24px 0 4px">每桌新台幣 35,800 元（每桌 10 位賓客）</p>
+    <p class="muted" style="text-align:center">以上價格為含稅價格，外加 10% 服務費。<br>主桌 12 席、17 桌 11 席請加點；14 桌兒童座椅另洽飯店。</p>
+  </article>
+  <figure class="menu-card">
+    <img src="venue/wedding-menu.png" alt="文華東方中式婚宴菜單原圖">
+    <figcaption class="muted">飯店原菜單（35800／桌）</figcaption>
+  </figure>
+</section>
 <script>
 const SEAT1 = -126;
 const TABLES = [
   {id:"head", label:"主桌", title:"新郎新娘長輩桌", seats:12, diet:"2 人不吃牛", x:267.5, y:238.3, zone:"舞台前方 · 走道花廊"},
-  {id:"1", label:"1", title:"女方艾克森桌", seats:10, diet:"全部葷食", x:314.2, y:309.4, zone:"面向舞台右側 · 走道旁"},
+  {id:"1", label:"1", title:"女方艾克森桌（超額 12 席）", seats:12, diet:"全部葷食 · 圓桌 10 位超額 2，餐具由 5 桌空位調配", x:314.2, y:309.4, zone:"面向舞台右側 · 走道旁", coverFrom:"5"},
   {id:"2", label:"2", title:"女方艾克森桌", seats:10, diet:"1 人素食", x:314.1, y:379.1, zone:"面向舞台右側 · 走道旁"},
-  {id:"3", label:"3", title:"女方萬里雲桌", seats:10, diet:"全部葷食", x:314.1, y:452.4, zone:"面向舞台右側 · 走道旁"},
-  {id:"6", label:"6", title:"女方媽媽親戚桌", seats:10, diet:"全部葷食", x:369.7, y:269.7, zone:"面向舞台右側 · 中排"},
-  {id:"7", label:"7", title:"女方爸爸親戚桌", seats:10, diet:"全部葷食", x:369.8, y:334.9, zone:"面向舞台右側 · 中排"},
-  {id:"8", label:"8", title:"女方創順與好友桌", seats:10, diet:"全部葷食", x:369.8, y:404.8, zone:"面向舞台右側 · 中排"},
-  {id:"5", label:"5", title:"女方爸爸親戚桌", seats:10, diet:"全部葷食", x:426.3, y:298.5, zone:"面向舞台右側 · 靠牆"},
-  {id:"9", label:"9", title:"女方爸爸親戚桌", seats:10, diet:"全部葷食", x:426.4, y:368.3, zone:"面向舞台右側 · 靠牆"},
-  {id:"10", label:"10", title:"女方仁寶桌", seats:10, diet:"1 人不吃牛", x:426.4, y:441.7, zone:"面向舞台右側 · 靠牆"},
+  {id:"3", label:"3", title:"女方創順與好友桌（超額 11 席）", seats:11, diet:"全部葷食 · 圓桌 10 位超額 1，餐具由 7 桌空位調配", x:314.1, y:452.4, zone:"面向舞台右側 · 走道旁", coverFrom:"7"},
+  {id:"6", label:"6", title:"女方媽媽親戚桌（移餐額度 1）", seats:10, diet:"全部葷食 · 空 1 席移給 17 桌", x:369.7, y:269.7, zone:"面向舞台右側 · 中排", spareCovers:1, coverTo:"17"},
+  {id:"7", label:"7", title:"女方爸爸親戚桌（移餐額度 1）", seats:10, diet:"全部葷食 · 空 1 席移給 3 桌", x:369.8, y:334.9, zone:"面向舞台右側 · 中排", spareCovers:1, coverTo:"3"},
+  {id:"8", label:"8", title:"女方仁寶桌", seats:10, diet:"1 人不吃牛", x:369.8, y:404.8, zone:"面向舞台右側 · 中排"},
+  {id:"5", label:"5", title:"女方爸爸親戚桌（移餐額度 2）", seats:10, diet:"全部葷食 · 空 2 席移給 1 桌", x:426.3, y:298.5, zone:"面向舞台右側 · 靠牆", spareCovers:2, coverTo:"1"},
+  {id:"9", label:"9", title:"女方爸爸親戚桌", seats:10, diet:"全部葷食 · 空 2 席保留，不移餐", x:426.4, y:368.3, zone:"面向舞台右側 · 靠牆"},
+  {id:"10", label:"10", title:"女方（預備桌）", seats:10, diet:"整桌預備 · 不列入移餐額度", x:426.4, y:441.7, zone:"面向舞台右側 · 靠牆"},
   {id:"11", label:"11", title:"女方萬里雲桌", seats:10, diet:"全部葷食", x:369.7, y:471.7, zone:"面向舞台右側 · 中排"},
   {id:"12", label:"12", title:"金門魏爺爺親友桌", seats:10, diet:"全部葷食", x:214.6, y:308.7, zone:"面向舞台左側 · 走道旁（近主桌）"},
   {id:"13", label:"13", title:"新郎江紀武好友桌", seats:10, diet:"全部葷食", x:214.7, y:378.5, zone:"面向舞台左側 · 走道旁"},
   {id:"14", label:"14", title:"新郎江紀武好友桌", seats:10, diet:"全部葷食 · 另備兒童座椅 1（廖宇軒小朋友，不佔主位）", x:214.6, y:451.8, zone:"面向舞台左側 · 走道旁"},
   {id:"15", label:"15", title:"江家長輩親友桌", seats:10, diet:"2 人不吃牛", x:158.1, y:275.7, zone:"面向舞台左側 · 中排"},
   {id:"16", label:"16", title:"爸爸同學友人桌", seats:10, diet:"全部葷食", x:158.1, y:346.9, zone:"面向舞台左側 · 中排"},
-  {id:"17", label:"17", title:"爸爸同學友人桌（超額 11 席）", seats:11, diet:"1 人素食 · 圓桌 10 位超額 1", x:158.2, y:414.3, zone:"面向舞台左側 · 中排"},
+  {id:"17", label:"17", title:"爸爸同學友人桌（超額 11 席）", seats:11, diet:"1 人素食 · 圓桌 10 位超額 1，餐具由 6 桌空位調配", x:158.2, y:414.3, zone:"面向舞台左側 · 中排", coverFrom:"6"},
   {id:"19", label:"19", title:"爸爸同學友人桌", seats:10, diet:"全部葷食", x:158.1, y:476.4, zone:"面向舞台左側 · 中排"},
   {id:"18", label:"18", title:"楊家親友桌", seats:10, diet:"5 人不吃牛", x:104.4, y:299.3, zone:"面向舞台左側 · 靠牆"},
   {id:"20", label:"20", title:"楊家親友桌", seats:10, diet:"1 人不吃牛", x:104.4, y:374.3, zone:"面向舞台左側 · 靠牆"},
-  {id:"21", label:"21", title:"楊家親友桌", seats:10, diet:"全部葷食", x:104.4, y:443.8, zone:"面向舞台左側 · 靠牆"},
-  {id:"22", label:"22", title:"男方（備用）", seats:10, diet:"", x:104.4, y:510.7, zone:"面向舞台左側 · 靠牆"}
+  {id:"21", label:"21", title:"楊家親友桌", seats:10, diet:"全部葷食", x:104.4, y:443.8, zone:"面向舞台左側 · 靠牆"}
 ];
-const ORDER = ["head","12","13","14","15","16","17","18","19","20","21","22","1","2","3","5","6","7","8","9","10","11"];
+const ORDER = ["head","12","13","14","15","16","17","18","19","20","21","1","2","3","5","6","7","8","9","10","11"];
 const GUESTS = {
   head:["江紀武（新郎）","林鈺瑾（新娘）","林活汶（新娘父親）","葉秋華（新娘母親）·不吃牛","葉秋英（新娘長輩）","鄭森義（新娘長輩）","張榮興（警政署長）","魏志名（新郎父親乾爸）","蔡航仙（新郎父親乾媽）","黃競良（新郎奶奶）","楊秋玉（新郎母親）","江守寰（新郎父親）·不吃牛"],
   "12":["魏靜瑄（新郎父親乾姑姑）","魏銘龍（新郎父親乾弟弟）","陳德樹","陳德樹 2","彭兼昌","張文興","伊金泉","翁李源","林弘曜","許嘉樺"],
@@ -93,16 +158,15 @@ const GUESTS = {
   "21":["楊秋瑛","楊秋瑛 2","楊秋瑛 3","楊秋瑛 4","楊秋珍","楊秋珍 2","楊秋珍 3","楊秋珍 4","楊秋珍 5","楊秋珍 6"],
   "13":["Taylor 陳俊諺","Taylor 陳俊諺 2","Winnie 王薏雯","Lory 顏慧玲","Lory 顏慧玲 2","Lory 顏慧玲 3","Max 張祐誠","Olivia 呂玗潔","Joyce 曾鈺鈞","Jerry 藍元皇"],
   "14":["Ben 廖宇軒","Ben 廖宇軒 2","Ben 廖宇軒 3","Peggy 石佩玉","George 郭建宏","Quentina 邱婷圓","Allen 王淇生","Eva 蔡依雯","Eva 蔡依雯 2","Dio 張敬暘"],
-  "1":["Ada","Ada 2","Ada 3","Hsu Chen Jui","YT","丁志杰／Jeremy","李礴軒／Lester","洪梓翔","王承皓"],
+  "1":["Ada","Ada 2","Ada 3","Hsu Chen Jui","YT","丁志杰／Jeremy","李礴軒／Lester","洪梓翔","王承皓","恩恩大小姐（萬里雲）","恩恩大小姐 2（萬里雲）","黃雅萱／Lia（萬里雲）"],
   "2":["Gino","Shirley","Tric","Zmic（艾克森）","宋玉琨／Lauren","林伯瑾·素食","王崧豪","陳癸庚／Brandan","陳諭","陳諭 2"],
-  "3":["廖淯婷","廖淯婷 2","廖淯婷 3","恩恩大小姐（萬里雲）","恩恩大小姐 2（萬里雲）","黃雅萱／Lia（萬里雲）"],
+  "3":["Hiro","Phoebe","Sara Lyn（創順）","Sara Lyn 2（創順）","吳孟錡、許嘉晏（仁寶）","吳孟錡、許嘉晏 2（仁寶）","吳孟錡、許嘉晏 3（仁寶）","李於軒（創順）","廖淯婷","廖淯婷 2","廖淯婷 3"],
   "6":["尤晟彥","尤晟彥 2","楊御書","楊御書 2","葉倫松","葉斯廷","鄭椀云","鄭椀孺","鄭諺隆"],
   "7":["林煜峰（新娘哥哥）","葉斯櫻","葉斯櫻 2","葉斯櫻 3","鄭育萱（新娘二阿姨）","鄭育萱 2","鄭育萱 3","鄭育萱 4","麥素華"],
-  "8":["Hiro","Phoebe","Sara Lyn（創順）","Sara Lyn 2（創順）","吳孟錡、許嘉晏（仁寶）","吳孟錡、許嘉晏 2（仁寶）","吳孟錡、許嘉晏 3（仁寶）","李於軒（創順）","吳宜蒨","林佳倪"],
+  "8":["Anita（仁寶）","Anita（仁寶）2","Ethan（仁寶）","Louis（仁寶）","Mindy（仁寶）","Shawn 翁祥恩（仁寶）","廖瑜瑄／Peggy（仁寶）·不吃牛","林振鴻／Neo（仁寶）","吳宜蒨","林佳倪"],
   "5":["林淑惠（新娘姑姑）","林淑惠 2","林淑惠 3","林淑惠 4","林瑞蓉","林瑞蓉 2","林瑞蓉 3","林瑞蓉 4"],
   "9":["林佳諭","林佳諭 2","林佳諭 3","林武煌","林瑞鴻","林瑞鴻 2","林瑞鴻 3","林瑞鴻 4"],
-  "10":["Anita（仁寶）","Anita（仁寶）2","Ethan（仁寶）","Louis（仁寶）","Mindy（仁寶）","Shawn 翁祥恩（仁寶）","廖瑜瑄／Peggy（仁寶）·不吃牛","林振鴻／Neo（仁寶）"],
-  "11":["張家瑋／Welly（萬里雲）","張維軒","林敬傑（萬里雲）","林敬傑（萬里雲）","楊季穎／Evelyn（萬里雲）","楊季穎 2","陳子揚／Jeff Chen（萬里雲）","陳楷榮／Aaron（萬里雲）"]
+  "11":["張家瑋／Welly（萬里雲）","張維軒","林敬傑（萬里雲）","林敬傑（萬里雲）","楊季穎／Evelyn（萬里雲）","楊季穎 2","陳子揚／Jeff Chen（萬里雲）","陳楷榮／Aaron（萬里雲）","許安宇（萬里雲）","玉陽（萬里雲）"]
 };
 function names(id){ return (GUESTS[id] || []).concat(Array(12).fill("")).slice(0, byId(id).seats); }
 function byId(id){ return TABLES.find(t => t.id === id); }
@@ -112,7 +176,45 @@ function pt(cx,cy,r,seat,seats){
 }
 function shortName(n){ return displayName(n).replace(/（/g,"(").split("(")[0].trim().slice(0,5); }
 function displayName(n){ return (n||"").replace(/·不吃牛/g,"").replace(/·素食/g,"").trim(); }
-function dietClass(n,i){ return i===0?"one":(n||"").includes("素食")?"veg":(n||"").includes("不吃牛")?"beef":""; }
+function spareSeats(t, ns){
+  const n = t.spareCovers || 0;
+  if(!n) return [];
+  const empties=[];
+  ns.forEach((name,i)=>{ if(!name) empties.push(i+1); });
+  return empties.slice(-n);
+}
+function isSpare(t, ns, seat){ return spareSeats(t, ns).includes(seat); }
+function dietClass(n,i,t,ns){
+  const seat=i+1;
+  if(i===0) return "one";
+  if((n||"").includes("素食")) return "veg";
+  if((n||"").includes("不吃牛")) return "beef";
+  if(!n && t && isSpare(t, ns, seat)) return "spare";
+  return "";
+}
+function dietGuests(ns){
+  const out=[];
+  ns.forEach((n,i)=>{
+    if(!n) return;
+    if(n.includes("素食")) out.push({seat:i+1,name:n,kind:"veg",display:displayName(n)});
+    else if(n.includes("不吃牛")) out.push({seat:i+1,name:n,kind:"beef",display:displayName(n)});
+  });
+  return out;
+}
+function dietNoteHtml(ns){
+  const diets=dietGuests(ns);
+  const veg=diets.filter(d=>d.kind==="veg");
+  const beef=diets.filter(d=>d.kind==="beef");
+  if(!diets.length) return `<div class="diet-note ok">本桌無需改菜</div>`;
+  let html=`<div class="diet-note"><b>本桌需改菜</b>`;
+  if(beef.length){
+    html+=`<div>不吃牛 ${beef.length} 人：拼盤牛腱自行不取；位上小牛肋排改 ${beef.length} 份。<br>${beef.map(d=>d.seat+" 號 "+d.display).join("、")}</div>`;
+  }
+  if(veg.length){
+    html+=`<div>素食 ${veg.length} 人：請出整套素食位上。<br>${veg.map(d=>d.seat+" 號 "+d.display).join("、")}</div>`;
+  }
+  return html+"</div>";
+}
 let selected = "head";
 
 function draw(){
@@ -126,9 +228,9 @@ function draw(){
     const on = selected===t.id;
     let chairs = `<circle cx="${t.x}" cy="${t.y}" r="${cr+10}" fill="rgba(255,247,237,0.01)"/>`;
     for (let i=0;i<seats;i++){
-      const s=i+1, p=pt(t.x,t.y,cr,s,seats), filled=!!ns[i], veg=(ns[i]||"").includes("素食"), beef=(ns[i]||"").includes("不吃牛");
-      const fill = s===1 ? "#e11d48" : veg ? "#15803d" : beef ? "#f9a8d4" : filled ? "#7c2d12" : "#fff7ed";
-      const light = s===1 || veg || (filled && !beef);
+      const s=i+1, p=pt(t.x,t.y,cr,s,seats), filled=!!ns[i], veg=(ns[i]||"").includes("素食"), beef=(ns[i]||"").includes("不吃牛"), spare=!filled && isSpare(t, ns, s);
+      const fill = s===1 ? "#e11d48" : veg ? "#15803d" : beef ? "#f9a8d4" : filled ? "#7c2d12" : spare ? "#0e7490" : "#fff7ed";
+      const light = s===1 || veg || spare || (filled && !beef);
       chairs += `<circle cx="${p.x}" cy="${p.y}" r="${s===1?4.2:3.6}" fill="${fill}" stroke="#b45309" stroke-width="${s===1?1.2:0.8}"/>`;
       chairs += `<text x="${p.x}" y="${p.y+0.5}" text-anchor="middle" dominant-baseline="middle" font-size="5" fill="${light?"#fff7ed":"#7c2d12"}" font-weight="${s===1?700:600}">${s}</text>`;
     }
@@ -156,8 +258,9 @@ function panel(){
   document.getElementById("panel").innerHTML = `
     <div class="chips">${chips}</div>
     <h2>${t.id==="head"?"主桌":t.label+" 桌"}</h2>
-    <div class="muted">${t.title}<br>${t.zone}</div>
-    ${ns.map((n,i)=>`<div class="seat"><span class="n ${dietClass(n,i)}">${i+1}</span><span class="${n?"":"empty"}">${displayName(n)||"空位"}</span></div>`).join("")}
+    <div class="muted">${t.title}<br>${t.zone}${t.spareCovers?`<br>移餐額度 ${t.spareCovers} 份 → ${t.coverTo} 桌`:""}${t.coverFrom?`<br>超額加椅，餐具由 ${t.coverFrom} 桌空位調配`:""}${t.id==="10"?"<br>整桌預備，不列入移餐額度":""}${t.id==="9"?"<br>空 2 席保留，不移餐":""}</div>
+    ${dietNoteHtml(ns)}
+    ${ns.map((n,i)=>`<div class="seat"><span class="n ${dietClass(n,i,t,ns)}">${i+1}</span><span class="${n?"":"empty"}">${displayName(n)||(isSpare(t,ns,i+1)?"空位（移餐）":t.id==="10"?"空位（預備）":"空位")}</span></div>`).join("")}
   `;
   document.querySelectorAll(".chips button").forEach(b => b.onclick = () => { selected=b.dataset.id; render(); });
 }
@@ -167,16 +270,38 @@ function roster(){
     const t = byId(id);
     const ns = names(id);
     const filled = ns.filter(Boolean).length;
+    const diets = dietGuests(ns);
+    const veg = diets.filter(d=>d.kind==="veg").length;
+    const beef = diets.filter(d=>d.kind==="beef").length;
+    const pills = (beef?`<span class="pill beef">不吃牛 ${beef}</span>`:"")+(veg?`<span class="pill veg">素食 ${veg}</span>`:"")+(t.spareCovers?`<span class="pill spare">移餐 ${t.spareCovers} → ${t.coverTo} 桌</span>`:"")+(t.coverFrom?`<span class="pill spare">加椅 · 餐自 ${t.coverFrom} 桌</span>`:"");
     return `<article class="card" data-id="${id}">
       <h3>${id==="head"?"主桌":t.label+" 桌"} <small style="font-weight:400;color:#b45309">${filled}/${t.seats}</small></h3>
-      <div class="muted">${t.title}</div>
-      <ol>${ns.map((n,i)=>`<li class="seat"><span class="n ${dietClass(n,i)}">${i+1}</span><span class="${n?"":"empty"}">${displayName(n)||"空位"}</span></li>`).join("")}</ol>
+      <div class="muted">${t.title}${pills?"<br>"+pills:""}</div>
+      <ol>${ns.map((n,i)=>`<li class="seat"><span class="n ${dietClass(n,i,t,ns)}">${i+1}</span><span class="${n?"":"empty"}">${displayName(n)||(isSpare(t,ns,i+1)?"空位（移餐）":t.id==="10"?"空位（預備）":"空位")}</span></li>`).join("")}</ol>
     </article>`;
   }).join("");
   document.querySelectorAll(".card").forEach(c => c.onclick = () => { selected=c.dataset.id; render(); window.scrollTo({top:0,behavior:"smooth"}); });
 }
 
-function render(){ draw(); panel(); roster(); }
+function kitchen(){
+  const rows=[];
+  let beef=0, veg=0;
+  for (const id of ORDER){
+    const t=byId(id);
+    const diets=dietGuests(names(id));
+    if(!diets.length) continue;
+    const b=diets.filter(d=>d.kind==="beef");
+    const v=diets.filter(d=>d.kind==="veg");
+    beef+=b.length; veg+=v.length;
+    const label=id==="head"?"主桌":t.label+" 桌";
+    rows.push(`<li><b>${label}</b> · ${t.title}${b.length?` · 不吃牛 ${b.length}`:""}${v.length?` · 素食 ${v.length}`:""}<br>${diets.map(d=>d.seat+" 號 "+d.display+"（"+(d.kind==="veg"?"素食":"不吃牛")+"）").join("、")}</li>`);
+  }
+  document.getElementById("kitchen").innerHTML = `<h2>給廚房的改菜摘要</h2>
+    <p class="muted">不吃牛 ${beef} 人：拼盤牛腱自行不取；位上小牛肋排需改 ${beef} 份。素食 ${veg} 人：請出整套素食位上。</p>
+    <p class="muted">移餐額度（加椅不另收費）：5 桌空 2 份→1 桌；7 桌空 1 份→3 桌；6 桌空 1 份→17 桌。9 桌空 2 與 10 桌預備不移餐。</p>
+    <ul>${rows.join("")}</ul>`;
+}
+function render(){ draw(); panel(); roster(); kitchen(); }
 render();
 </script>
 </body>
