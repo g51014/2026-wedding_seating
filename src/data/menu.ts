@@ -129,16 +129,16 @@ export const MENU_SECTIONS: MenuSection[] = [
     titleZh: "熱菜",
     dishes: [
       {
-        id: "grouper",
-        nameZh: "金蒜醬蒸海岩龍躉",
-        nameEn: "Green Grouper, Garlic Sauce, Steamed",
+        id: "lobster",
+        nameZh: "金蒜醬蒸海岩龍蝦",
+        nameEn: "Rock Lobster, Garlic Sauce, Steamed",
         service: "plated",
         serviceNote: "位上／每位半隻",
       },
       {
-        id: "lobster",
+        id: "grouper",
         nameZh: "花菇蟲草蒸點帶石斑",
-        nameEn: "Rock Lobster, Flower Mushroom, Cordyceps, Steamed",
+        nameEn: "Green Grouper, Flower Mushroom, Cordyceps, Steamed",
         service: "plated",
         serviceNote: "位上",
       },
