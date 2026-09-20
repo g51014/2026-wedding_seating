@@ -73,14 +73,14 @@ TABLES = [
     dict(id="9", label="9", alias="女方爸爸親戚", seats=10, side="右", spare=1, cover_to="13", keep_empty=1),
     dict(id="10", label="10", alias="預備", seats=10, side="右", reserve=True),
     dict(id="11", label="11", alias="萬里雲", seats=10, side="右"),
-    dict(id="12", label="12", alias="男方親友", seats=10, side="左"),
-    dict(id="13", label="13", alias="新郎好友", seats=11, side="左", cover_from="9", child="Lory"),
-    dict(id="14", label="14", alias="新郎好友", seats=10, side="左", child="廖宇軒"),
-    dict(id="15", label="15", alias="男方親友", seats=10, side="左"),
-    dict(id="16", label="16", alias="爸爸同學", seats=10, side="左"),
-    dict(id="17", label="17", alias="爸爸同學", seats=11, side="左", cover_from="6"),
+    dict(id="12", label="12", alias="新郎父親好友", seats=10, side="左"),
+    dict(id="13", label="13", alias="伊諾科技", seats=11, side="左", cover_from="9", child="Lory"),
+    dict(id="14", label="14", alias="伊諾科技", seats=10, side="左", child="廖宇軒"),
+    dict(id="15", label="15", alias="江家親友", seats=10, side="左"),
+    dict(id="16", label="16", alias="新郎父親好友", seats=10, side="左"),
+    dict(id="17", label="17", alias="新郎父親好友", seats=11, side="左", cover_from="6"),
     dict(id="18", label="18", alias="楊家親友", seats=10, side="左"),
-    dict(id="19", label="19", alias="爸爸同學", seats=10, side="左"),
+    dict(id="19", label="19", alias="新郎父親好友", seats=10, side="左"),
     dict(id="20", label="20", alias="楊家親友", seats=10, side="左"),
     dict(id="21", label="21", alias="楊家親友", seats=10, side="左"),
 ]
@@ -659,28 +659,13 @@ def main():
             ("xl/worksheets/sheet5.xml", build_roster(guests)),
         ]
     )
-    paths = [
-        OUT,
-        os.path.join(ROOT, "2026-10-04-江林府喜宴-文華東方對照表-飯店用.xlsx"),
-    ]
-    written = None
-    last_error = None
-    for path in paths:
-        try:
-            zf = zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED)
-            try:
-                for name, data in files.items():
-                    zf.writestr(name, data.encode("utf-8"))
-            finally:
-                zf.close()
-            written = path
-            break
-        except IOError as err:
-            last_error = err
-    if not written:
-        raise last_error
+    zf = zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED)
+    try:
+        for name, data in files.items():
+            zf.writestr(name, data.encode("utf-8"))
+    finally:
+        zf.close()
     print("wrote xlsx")
-    print(written.encode("utf-8"))
 
 
 if __name__ == "__main__":
