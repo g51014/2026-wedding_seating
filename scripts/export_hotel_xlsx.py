@@ -63,16 +63,16 @@ BRIDE_GUESTS = {
 
 TABLES = [
     dict(id="head", label="主桌", alias="主桌", seats=12, side="中"),
-    dict(id="1", label="1", alias="艾克森／萬里雲", seats=12, side="右", cover_from="5"),
-    dict(id="2", label="2", alias="艾克森", seats=10, side="右"),
-    dict(id="3", label="3", alias="創順", seats=11, side="右", cover_from="7", child="吳孟錡"),
-    dict(id="5", label="5", alias="女方爸爸親戚", seats=10, side="右", spare=2, cover_to="1", keep_empty=1),
-    dict(id="6", label="6", alias="女方媽媽親戚", seats=10, side="右", spare=1, cover_to="17"),
-    dict(id="7", label="7", alias="女方爸爸親戚", seats=10, side="右", spare=1, cover_to="3"),
-    dict(id="8", label="8", alias="仁寶", seats=10, side="右"),
-    dict(id="9", label="9", alias="女方爸爸親戚", seats=10, side="右", spare=1, cover_to="13", keep_empty=1),
+    dict(id="1", label="1", alias="艾克森科技／萬里雲科技", seats=12, side="右", cover_from="5"),
+    dict(id="2", label="2", alias="艾克森科技", seats=10, side="右"),
+    dict(id="3", label="3", alias="創順科技", seats=11, side="右", cover_from="7", child="吳孟錡"),
+    dict(id="5", label="5", alias="林家親友", seats=10, side="右", spare=2, cover_to="1", keep_empty=1),
+    dict(id="6", label="6", alias="葉家親友", seats=10, side="右", spare=1, cover_to="17"),
+    dict(id="7", label="7", alias="林家親友", seats=10, side="右", spare=1, cover_to="3"),
+    dict(id="8", label="8", alias="仁寶科技", seats=10, side="右"),
+    dict(id="9", label="9", alias="林家親友", seats=10, side="右", spare=1, cover_to="13", keep_empty=1),
     dict(id="10", label="10", alias="預備", seats=10, side="右", reserve=True),
-    dict(id="11", label="11", alias="萬里雲", seats=10, side="右"),
+    dict(id="11", label="11", alias="萬里雲科技", seats=10, side="右"),
     dict(id="12", label="12", alias="新郎父親好友", seats=10, side="左"),
     dict(id="13", label="13", alias="伊諾科技", seats=11, side="左", cover_from="9", child="Lory"),
     dict(id="14", label="14", alias="伊諾科技", seats=10, side="左", child="廖宇軒"),
@@ -394,13 +394,14 @@ def build_overview(guests):
                 empty += 1
     rows = [
         row_xml(1, ["項目", "內容"], [S_HEAD, S_HEAD]),
-        row_xml(2, ["編制席", sum(t["seats"] for t in TABLES)]),
-        row_xml(3, ["實坐", filled]),
-        row_xml(4, ["空位", empty]),
-        row_xml(5, ["不吃牛", "%s 人，小牛肋排改 %s 份" % (beef, beef)], [S_BEEF, S_BEEF]),
-        row_xml(6, ["素食", "%s 人，整套素食位上" % veg], [S_VEG, S_VEG]),
-        row_xml(7, ["兒童座椅", child_summary() + "（不佔主位）"], [S_CHILD, S_CHILD]),
-        row_xml(8, ["移餐", "5桌2份→1桌；7桌1份→3桌；9桌1份→13桌；6桌1份→17桌"]),
+        row_xml(2, ["桌數", "%s 桌（含主桌、預備桌；場地無 4 號）" % len(TABLES)]),
+        row_xml(3, ["編制席", sum(t["seats"] for t in TABLES)]),
+        row_xml(4, ["實坐", filled]),
+        row_xml(5, ["空位", empty]),
+        row_xml(6, ["不吃牛", "%s 人，小牛肋排改 %s 份" % (beef, beef)], [S_BEEF, S_BEEF]),
+        row_xml(7, ["素食", "%s 人，整套素食位上" % veg], [S_VEG, S_VEG]),
+        row_xml(8, ["兒童座椅", child_summary() + "（不佔主位）"], [S_CHILD, S_CHILD]),
+        row_xml(9, ["移餐", "5桌2份→1桌；7桌1份→3桌；9桌1份→13桌；6桌1份→17桌"]),
     ]
     return sheet_xml(rows, [14, 70], freeze_row=1)
 
@@ -547,7 +548,8 @@ def build_table_list(guests):
             )
         )
         r += 1
-    return sheet_xml(rows, [10, 16, 8, 8, 8, 8, 10, 8, 28], freeze_row=1, auto_ref="A1:I22")
+    last = r - 1
+    return sheet_xml(rows, [10, 16, 8, 8, 8, 8, 10, 8, 28], freeze_row=1, auto_ref="A1:I%s" % last)
 
 
 def build_roster(guests):
