@@ -24,6 +24,8 @@ export type TableDef = {
   coverFrom?: string
   /** 移餐額度要送到的超額桌號。 */
   coverTo?: string
+  /** 另備兒童座椅（不佔主位）。 */
+  childSeats?: string[]
 }
 
 export const LAYOUT = {
@@ -50,7 +52,7 @@ export const TABLES: TableDef[] = [
   },
   { id: "1", label: "1", title: "女方艾克森桌（超額 12 席）", seats: 12, diet: "全部葷食 · 圓桌 10 位超額 2，餐具由 5 桌空位調配", x: 314.2, y: 309.4, side: "stage-right", zone: "面向舞台右側 · 走道旁", coverFrom: "5" },
   { id: "2", label: "2", title: "女方艾克森桌", seats: 10, diet: "1 人素食", x: 314.1, y: 379.1, side: "stage-right", zone: "面向舞台右側 · 走道旁" },
-  { id: "3", label: "3", title: "女方創順與好友桌（超額 11 席）", seats: 11, diet: "全部葷食 · 圓桌 10 位超額 1，餐具由 7 桌空位調配", x: 314.1, y: 452.4, side: "stage-right", zone: "面向舞台右側 · 走道旁", coverFrom: "7" },
+  { id: "3", label: "3", title: "女方創順與好友桌（超額 11 席）", seats: 11, diet: "全部葷食 · 圓桌 10 位超額 1，餐具由 7 桌空位調配 · 另備兒童座椅 1（吳孟錡，不佔主位）", x: 314.1, y: 452.4, side: "stage-right", zone: "面向舞台右側 · 走道旁", coverFrom: "7", childSeats: ["吳孟錡"] },
   { id: "6", label: "6", title: "女方媽媽親戚桌（移餐額度 1）", seats: 10, diet: "全部葷食 · 空 1 席移給 17 桌", x: 369.7, y: 269.7, side: "stage-right", zone: "面向舞台右側 · 中排", spareCovers: 1, coverTo: "17" },
   { id: "7", label: "7", title: "女方爸爸親戚桌（移餐額度 1）", seats: 10, diet: "全部葷食 · 空 1 席移給 3 桌", x: 369.8, y: 334.9, side: "stage-right", zone: "面向舞台右側 · 中排", spareCovers: 1, coverTo: "3" },
   { id: "8", label: "8", title: "女方仁寶桌", seats: 10, diet: "1 人不吃牛", x: 369.8, y: 404.8, side: "stage-right", zone: "面向舞台右側 · 中排" },
@@ -59,8 +61,8 @@ export const TABLES: TableDef[] = [
   { id: "10", label: "10", title: "女方（預備桌）", seats: 10, diet: "整桌預備 · 不列入移餐額度", x: 426.4, y: 441.7, side: "stage-right", zone: "面向舞台右側 · 靠牆" },
   { id: "11", label: "11", title: "女方萬里雲桌", seats: 10, diet: "全部葷食", x: 369.7, y: 471.7, side: "stage-right", zone: "面向舞台右側 · 中排" },
   { id: "12", label: "12", title: "金門魏爺爺親友桌", seats: 10, diet: "全部葷食", x: 214.6, y: 308.7, side: "stage-left", zone: "面向舞台左側 · 走道旁（近主桌）" },
-  { id: "13", label: "13", title: "新郎江紀武好友桌（超額 11 席）", seats: 11, diet: "全部葷食 · 圓桌 10 位超額 1，餐具由 9 桌空位調配", x: 214.7, y: 378.5, side: "stage-left", zone: "面向舞台左側 · 走道旁", coverFrom: "9" },
-  { id: "14", label: "14", title: "新郎江紀武好友桌", seats: 10, diet: "全部葷食 · 另備兒童座椅 1（廖宇軒小朋友，不佔主位）", x: 214.6, y: 451.8, side: "stage-left", zone: "面向舞台左側 · 走道旁" },
+  { id: "13", label: "13", title: "新郎江紀武好友桌（超額 11 席）", seats: 11, diet: "全部葷食 · 圓桌 10 位超額 1，餐具由 9 桌空位調配 · 另備兒童座椅 1（Lory，不佔主位）", x: 214.7, y: 378.5, side: "stage-left", zone: "面向舞台左側 · 走道旁", coverFrom: "9", childSeats: ["Lory"] },
+  { id: "14", label: "14", title: "新郎江紀武好友桌", seats: 10, diet: "全部葷食 · 另備兒童座椅 1（廖宇軒，不佔主位）", x: 214.6, y: 451.8, side: "stage-left", zone: "面向舞台左側 · 走道旁", childSeats: ["廖宇軒"] },
   { id: "15", label: "15", title: "江家長輩親友桌", seats: 10, diet: "2 人不吃牛", x: 158.1, y: 275.7, side: "stage-left", zone: "面向舞台左側 · 中排" },
   { id: "16", label: "16", title: "爸爸同學友人桌", seats: 10, diet: "全部葷食", x: 158.1, y: 346.9, side: "stage-left", zone: "面向舞台左側 · 中排" },
   { id: "17", label: "17", title: "爸爸同學友人桌（超額 11 席）", seats: 11, diet: "1 人素食 · 圓桌 10 位超額 1，餐具由 6 桌空位調配", x: 158.2, y: 414.3, side: "stage-left", zone: "面向舞台左側 · 中排", coverFrom: "6" },
@@ -97,6 +99,18 @@ export const TABLE_ORDER = [
 
 export function tableById(id: string) {
   return TABLES.find((table) => table.id === id)
+}
+
+export function childSeatNote(table: TableDef) {
+  if (!table.childSeats?.length) return ""
+  return `另備兒童座椅 ${table.childSeats.length}（${table.childSeats.join("、")}，不佔主位）`
+}
+
+export function allChildSeatNotes() {
+  return TABLES.filter((table) => table.childSeats?.length).map((table) => {
+    const label = table.id === "head" ? "主桌" : `${table.label} 桌`
+    return `${label}${childSeatNote(table)}`
+  })
 }
 
 export function seatCount(table: TableDef) {

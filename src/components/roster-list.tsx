@@ -46,6 +46,11 @@ export function RosterList({ guests, onSelect }: RosterProps) {
                     加椅 · 餐自 {table.coverFrom} 桌
                   </Badge>
                 ) : null}
+                {table.childSeats?.length ? (
+                  <Badge className="bg-amber-700 font-normal text-white">
+                    兒童座椅 {table.childSeats.length} · {table.childSeats.join("、")}
+                  </Badge>
+                ) : null}
               </div>
               </div>
               <p className="text-xs text-[#92400e]">{table.title}</p>

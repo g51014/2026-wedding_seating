@@ -1,5 +1,5 @@
 import { displayGuestName, isNoBeef, isVegetarian } from "@/data/guests"
-import { TABLE_ORDER, TABLES, tableById } from "@/data/venue"
+import { TABLE_ORDER, TABLES, allChildSeatNotes, tableById } from "@/data/venue"
 import type { GuestMap } from "@/lib/seating"
 
 export type ServiceStyle = "lazy-susan" | "plated"
@@ -268,6 +268,6 @@ export const PORTION_NOTES = (() => {
     .join("、")
   return [
     `菜單以每桌 ${MENU.guestsPerTable} 位計價；主桌 ${head?.seats ?? 12} 席${extraText ? `，${extraText}` : ""}，請加點份數。`,
-    "14 桌另備兒童座椅 1（廖宇軒小朋友，不佔主位），兒童餐另洽飯店。",
+    `${allChildSeatNotes().join("；")}，兒童餐另洽飯店。`,
   ]
 })()

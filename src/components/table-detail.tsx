@@ -2,7 +2,7 @@
 
 import { Input } from "@/components/ui/input"
 import { displayGuestName, isNoBeef, isVegetarian } from "@/data/guests"
-import { extraChairCount, isSpareCoverSeat, tableById } from "@/data/venue"
+import { extraChairCount, isSpareCoverSeat, tableById, childSeatNote } from "@/data/venue"
 import { RoundTable } from "@/components/round-table"
 import { SeatNumber } from "@/components/seat-number"
 import { TableDietNote } from "@/components/table-diet-note"
@@ -43,6 +43,11 @@ export function TableDetail({ tableId, guests, onChange }: TableDetailProps) {
         ) : null}
         {table.id === "9" || table.id === "5" ? (
           <p className="mt-1 text-xs text-[#92400e]">另 1 席空位保留給本桌，不移餐。</p>
+        ) : null}
+        {table.childSeats?.length ? (
+          <p className="mt-1 text-xs text-amber-800">
+            {childSeatNote(table)}，兒童餐另洽飯店。
+          </p>
         ) : null}
         <p className="mt-1 text-xs text-muted-foreground">
           紅點為 1 號位（近舞台左上），其餘順時針。主桌 12 席，其餘原則 10 席。
