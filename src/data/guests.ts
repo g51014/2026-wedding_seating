@@ -2,7 +2,7 @@ import { emptyGuests } from "@/data/venue"
 
 /**
  * Word 確認版桌號 → 場地桌號。
- * 面對舞台：左男右女。新郎好友兩桌在左側走道 13、14。
+ * 面對舞台：左男右女。伊諾科技兩桌在左側走道 13、14。
  */
 export const WORD_TO_VENUE: Record<string, string> = {
   head: "head",
@@ -18,7 +18,7 @@ export const WORD_TO_VENUE: Record<string, string> = {
   "11": "14",
 }
 
-/** 男方確認版桌次（V2／1150828）。鍵為 Word 原桌號。場地 13、14 為新郎好友桌。 */
+/** 男方確認版桌次（V2／1150828）。鍵為 Word 原桌號。場地 13、14 為伊諾科技桌。 */
 export const WORD_GUESTS: Record<string, string[]> = {
   head: [
     "江紀武（新郎）",
