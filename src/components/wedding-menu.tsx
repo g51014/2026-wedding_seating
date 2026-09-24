@@ -193,7 +193,7 @@ export function PrintMenu({ guests }: { guests: GuestMap }) {
         ))}
       </ul>
       <p className="text-xs text-[#92400e]">
-        {tableLabel("head")}與超額桌請按實際人數加點。移餐額度：5 桌 2 份→1 桌、7 桌 1 份→3 桌、9 桌 1 份→13 桌、6 桌 1 份→17 桌。完整菜名見宴席菜單分頁。
+        {tableLabel("head")}與加椅桌（1、2、13、14、17）請按實際人數加點。餐自：1、2 桌各 1 席自 5 桌，13 桌自 9 桌，14 桌自 8 桌，17 桌自 15 桌。完整菜名見宴席菜單分頁。
       </p>
     </div>
   )

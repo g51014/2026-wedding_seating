@@ -48,7 +48,10 @@ export function RosterList({ guests, onSelect }: RosterProps) {
                 ) : null}
                 {table.childSeats?.length ? (
                   <Badge className="bg-amber-700 font-normal text-white">
-                    兒童座椅 {table.childSeats.length} · {table.childSeats.join("、")}
+                    兒童座椅 {table.childSeats.length}
+                    {table.childSeats.some((name) => name && name !== "兒童座椅")
+                      ? ` · ${table.childSeats.filter((name) => name && name !== "兒童座椅").join("、")}`
+                      : ""}
                   </Badge>
                 ) : null}
               </div>

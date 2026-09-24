@@ -41,9 +41,6 @@ export function TableDetail({ tableId, guests, onChange }: TableDetailProps) {
         {table.id === "10" ? (
           <p className="mt-1 text-xs text-[#92400e]">整桌預備，空位不列入移餐額度。</p>
         ) : null}
-        {table.id === "9" || table.id === "5" ? (
-          <p className="mt-1 text-xs text-[#92400e]">另 1 席空位保留給本桌，不移餐。</p>
-        ) : null}
         {table.childSeats?.length ? (
           <p className="mt-1 text-xs text-amber-800">
             {childSeatNote(table)}，兒童餐另洽飯店。
