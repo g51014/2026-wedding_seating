@@ -69,7 +69,7 @@
 <header>
   <div class="sub">2026／10／4 · 江林府 THE GRAND BALLROOM I</div>
   <h1>2026-10-04 William &amp; Jill 婚宴桌次安排</h1>
-  <p class="note">場地依 Grand Ballroom I 示意圖：面對舞台<b>左側 10 桌</b>（男方 12–21）、<b>右側 10 桌</b>（女方 1–3、5–11，無 4 號）。名單依 9/20 文華東方對照表。兒童座椅（不佔主位）：<b>1 桌 2、3 桌吳尹泰、13 桌 1、14 桌 1</b>。加椅餐自：1、2 桌各 1 席自 5 桌；13 桌自 9 桌；14 桌自 8 桌；17 桌自 15 桌。5 桌移至 1、2 桌各 1 位；7 桌移至 8、14 桌；9 桌移至 13 桌 2 位。6 桌 9 席、11 桌空 2 席、10 桌預備，皆不列入移餐。每椅標座號，紅點為 1 號位，其餘順時針。</p>
+  <p class="note">加餐額度<b>足夠</b>。移餐空位為<b>青點</b>，都畫在座位上：5 桌 2 席給 1、2 桌，9 桌 1 席給 13 桌，15 桌 1 席給 16 桌，11 桌 2 席與 6 桌 1 席給 19 桌。還沒用的空額共 <b>3</b> 席：6 桌 2、9 桌 1，不上色。10 桌預備不計。每椅標座號，紅點為 1 號位，其餘順時針。</p>
   <p class="legend"><span class="dot" style="background:#e11d48"></span>1 號位<span class="dot" style="background:#7c2d12"></span>已入座<span class="dot" style="background:#15803d"></span>素食<span class="dot" style="background:#f9a8d4"></span>不吃牛<span class="dot" style="background:#0e7490"></span>移餐額度<span class="dot" style="background:#fff7ed;border:1px solid #b45309"></span>空位／預備</p>
 </header>
 <div class="layout">
@@ -115,7 +115,7 @@
       <li>精緻小點<span class="mark">轉台自取</span><div class="en">Petits Fours</div></li>
     </ul>
     <p style="text-align:center;color:var(--wine);margin:24px 0 4px">每桌新台幣 35,800 元（每桌 10 位賓客）</p>
-    <p class="muted" style="text-align:center">以上價格為含稅價格，外加 10% 服務費。<br>主桌 12 席；加椅桌（1、2、13、14、17）請按實際人數加點。兒童座椅：1 桌 2、3 桌吳尹泰、13 桌 1、14 桌 1，兒童餐另洽飯店。</p>
+    <p class="muted" style="text-align:center">以上價格為含稅價格，外加 10% 服務費。<br>主桌 12 席；加椅桌（1、2、13、14、16、19）請按實際人數加點。兒童座椅：1 桌 2、3 桌吳尹泰、13 桌 1、14 桌 1，兒童餐另洽飯店。</p>
   </article>
   <figure class="menu-card">
     <img src="venue/wedding-menu.png" alt="文華東方中式婚宴菜單原圖">
@@ -129,20 +129,20 @@ const TABLES = [
   {id:"1", label:"1", title:"艾克森科技／萬里雲科技桌（11 席）", seats:11, diet:"全部葷食 · 餐自 5 桌 · 另備兒童座椅 2", x:314.2, y:309.4, zone:"面向舞台右側 · 走道旁", coverFrom:"5", childSeats:["兒童座椅","兒童座椅"]},
   {id:"2", label:"2", title:"艾克森科技桌（11 席）", seats:11, diet:"全部葷食 · 餐自 5 桌", x:314.1, y:379.1, zone:"面向舞台右側 · 走道旁", coverFrom:"5"},
   {id:"3", label:"3", title:"創順科技桌", seats:10, diet:"全部葷食 · 另備兒童座椅 1（吳尹泰，不佔主位）", x:314.1, y:452.4, zone:"面向舞台右側 · 走道旁", childSeats:["吳尹泰"]},
-  {id:"6", label:"6", title:"葉家親友桌（9 席）", seats:9, diet:"全部葷食 · 多一份餐", x:369.7, y:269.7, zone:"面向舞台右側 · 中排"},
+  {id:"6", label:"6", title:"葉家親友桌（移餐 1）", seats:10, diet:"全部葷食 · 空 1 席移給 19 桌，另 2 席空額不標色", x:369.7, y:269.7, zone:"面向舞台右側 · 中排", spareCovers:1, coverTo:"19"},
   {id:"7", label:"7", title:"林家親友桌", seats:10, diet:"全部葷食 · 移餐至 8 桌、14 桌 · 多二份餐", x:369.8, y:334.9, zone:"面向舞台右側 · 中排"},
   {id:"8", label:"8", title:"萬里雲科技桌", seats:10, diet:"全部葷食", x:369.8, y:404.8, zone:"面向舞台右側 · 中排"},
-  {id:"5", label:"5", title:"林家親友桌（8 席）", seats:8, diet:"全部葷食 · 移餐至 1 桌 1 位、2 桌 1 位 · 多二份餐", x:426.3, y:298.5, zone:"面向舞台右側 · 靠牆"},
-  {id:"9", label:"9", title:"林家親友桌（8 席）", seats:8, diet:"全部葷食 · 移餐至 13 桌 2 位 · 多二份餐", x:426.4, y:368.3, zone:"面向舞台右側 · 靠牆"},
+  {id:"5", label:"5", title:"林家親友桌（移餐 2）", seats:10, diet:"全部葷食 · 空 2 席移給 1 桌、2 桌各 1 位", x:426.3, y:298.5, zone:"面向舞台右側 · 靠牆", spareCovers:2, coverTo:"1、2"},
+  {id:"9", label:"9", title:"林家親友桌（移餐 1）", seats:10, diet:"全部葷食 · 空 1 席移給 13 桌，另 1 席空額不標色", x:426.4, y:368.3, zone:"面向舞台右側 · 靠牆", spareCovers:1, coverTo:"13"},
   {id:"10", label:"10", title:"預備桌", seats:10, diet:"整桌預備 · 不列入移餐額度", x:426.4, y:441.7, zone:"面向舞台右側 · 靠牆"},
-  {id:"11", label:"11", title:"仁寶科技桌", seats:10, diet:"1 人不吃牛", x:369.7, y:471.7, zone:"面向舞台右側 · 中排"},
+  {id:"11", label:"11", title:"仁寶科技桌（移餐 2）", seats:10, diet:"1 人不吃牛 · 空 2 席移給 19 桌", x:369.7, y:471.7, zone:"面向舞台右側 · 中排", spareCovers:2, coverTo:"19"},
   {id:"12", label:"12", title:"新郎父親好友桌", seats:10, diet:"全部葷食", x:214.6, y:308.7, zone:"面向舞台左側 · 走道旁（近主桌）"},
   {id:"13", label:"13", title:"伊諾科技桌（11 席）", seats:11, diet:"全部葷食 · 餐自 9 桌 · 另備兒童座椅 1", x:214.7, y:378.5, zone:"面向舞台左側 · 走道旁", coverFrom:"9", childSeats:["兒童座椅"]},
   {id:"14", label:"14", title:"伊諾科技桌（11 席）", seats:11, diet:"全部葷食 · 餐自 8 桌 · 另備兒童座椅 1", x:214.6, y:451.8, zone:"面向舞台左側 · 走道旁", coverFrom:"8", childSeats:["兒童座椅"]},
-  {id:"15", label:"15", title:"江家親友桌（9 席）", seats:9, diet:"2 人不吃牛", x:158.1, y:275.7, zone:"面向舞台左側 · 中排"},
-  {id:"16", label:"16", title:"新郎父親好友桌", seats:10, diet:"全部葷食", x:158.1, y:346.9, zone:"面向舞台左側 · 中排"},
-  {id:"17", label:"17", title:"新郎父親好友桌（11 席）", seats:11, diet:"1 人素食 · 餐自 15 桌", x:158.2, y:414.3, zone:"面向舞台左側 · 中排", coverFrom:"15"},
-  {id:"19", label:"19", title:"新郎父親好友桌（9 席）", seats:9, diet:"全部葷食", x:158.1, y:476.4, zone:"面向舞台左側 · 中排"},
+  {id:"15", label:"15", title:"江家親友桌（移餐 1）", seats:10, diet:"2 人不吃牛 · 空 1 席改移給 16 桌", x:158.1, y:275.7, zone:"面向舞台左側 · 中排", spareCovers:1, coverTo:"16"},
+  {id:"16", label:"16", title:"新郎父親好友桌（11 席）", seats:11, diet:"全部葷食 · 呂俊翰含本人 5 位 · 加餐 1 份自 15 桌", x:158.1, y:346.9, zone:"面向舞台左側 · 中排", coverFrom:"15", coverNeed:1},
+  {id:"17", label:"17", title:"新郎父親好友桌", seats:10, diet:"1 人素食 · 加椅已取消，餐具改供 16 桌", x:158.2, y:414.3, zone:"面向舞台左側 · 中排"},
+  {id:"19", label:"19", title:"新郎父親好友桌（12 席）", seats:12, diet:"全部葷食 · 原 9 席，加餐 3 份（11 桌 2、6 桌 1）", x:158.1, y:476.4, zone:"面向舞台左側 · 中排", coverFrom:"11、6", coverNeed:3},
   {id:"18", label:"18", title:"楊家親友桌", seats:10, diet:"5 人不吃牛", x:104.4, y:299.3, zone:"面向舞台左側 · 靠牆"},
   {id:"20", label:"20", title:"楊家親友桌", seats:10, diet:"1 人不吃牛", x:104.4, y:374.3, zone:"面向舞台左側 · 靠牆"},
   {id:"21", label:"21", title:"楊家親友桌", seats:10, diet:"全部葷食", x:104.4, y:443.8, zone:"面向舞台左側 · 靠牆"}
@@ -152,9 +152,9 @@ const GUESTS = {
   head:["江紀武","林鈺瑾","林活汶","葉秋華·不吃牛","葉秋英","鄭森義","張榮興","魏志名","蔡航仙","黃競良","楊秋玉","江守寰·不吃牛"],
   "12":["魏靜瑄","魏銘龍","陳德樹","陳德樹 2","彭兼昌","張文興","伊金泉","翁李源","林弘曜","許嘉樺"],
   "15":["江銘君","黃洲祥","阮阿綢·不吃牛","張巧玲","張雅媛·不吃牛","江紀威","江述禾","林娓華","游本明"],
-  "16":["張國雄","劉傳璽","林國平","黃維堅","黃維堅 2","林存讓","李晃旭","李晃旭 2","張榮貴","張榮貴 2"],
-  "17":["廖恆裕","張厚齊·素食","潘志成","李天文","李添益","王英郁／高雄同學","揚威孫","曾啟彥","蔡上機","李承龍","簡達人"],
-  "19":["楊鄉懿","楊鄉懿 2","李皇德","張永辛","林天福","林天福 2","江志成","江志成 2","呂俊翰"],
+  "16":["張國雄","劉傳璽","黃維堅","黃維堅 2","張榮貴","張榮貴 2","呂俊翰","呂俊翰 2","呂俊翰 3","呂俊翰 4","呂俊翰 5"],
+  "17":["廖恆裕","張厚齊·素食","潘志成","李天文","李添益","王英郁／高雄同學","揚威孫","曾啟彥","蔡上機","李承龍"],
+  "19":["楊鄉懿","楊鄉懿 2","張永辛眷屬","張永辛","林天福","林天福 2","江志成","江志成 2","林國平","林存讓","李晃旭","李晃旭 2"],
   "18":["楊秋姍","楊秋姍 2·不吃牛","楊秋姍 3","楊秋姍 4","李冠誼／李秀鳳","李冠誼／李秀鳳 2","鄒金鑾·不吃牛","鄒金鑾 2·不吃牛","張如慧·不吃牛","張如慧 2·不吃牛"],
   "20":["楊秋玲","楊秋玲 2·不吃牛","楊秋玲 3","楊秋玲 4","楊秋玲 5","楊秋玲 6","楊秋玲 7","楊秋琪","楊秋琪 2","楊秋瑛"],
   "21":["楊秋瑛","楊秋瑛 2","楊秋瑛 3","楊秋瑛 4","楊秋珍","楊秋珍 2","楊秋珍 3","楊秋珍 4","楊秋珍 5","楊秋珍 6"],
@@ -170,7 +170,7 @@ const GUESTS = {
   "9":["林佳諭","林佳諭 2","林佳諭 3","林瑞鴻","林瑞鴻 2","林瑞鴻 3","林瑞鴻 4","麥素華"],
   "11":["Anita","Anita2","Ethan","Louis","Mindy","Shawn 翁祥恩","廖瑜瑄／Peggy·不吃牛","林振鴻／Neo"]
 };
-function names(id){ return (GUESTS[id] || []).concat(Array(12).fill("")).slice(0, byId(id).seats); }
+function names(id){ const seats = byId(id).seats; return (GUESTS[id] || []).concat(Array(seats).fill("")).slice(0, seats); }
 function byId(id){ return TABLES.find(t => t.id === id); }
 function pt(cx,cy,r,seat,seats){
   const rad = (SEAT1 + (seat-1)*(360/seats)) * Math.PI/180;
@@ -266,7 +266,7 @@ function panel(){
   document.getElementById("panel").innerHTML = `
     <div class="chips">${chips}</div>
     <h2>${t.id==="head"?"主桌":t.label+" 桌"}</h2>
-    <div class="muted">${t.title}<br>${t.zone}${t.spareCovers?`<br>移餐額度 ${t.spareCovers} 份 → ${t.coverTo} 桌`:""}${t.coverFrom?`<br>超額加椅，餐具由 ${t.coverFrom} 桌空位調配`:""}${t.id==="10"?"<br>整桌預備，不列入移餐額度":""}${childNote(t)?"<br>"+childNote(t)+"，兒童餐另洽飯店":""}</div>
+    <div class="muted">${t.title}<br>${t.zone}${t.spareCovers?`<br>移餐額度 ${t.spareCovers} 份 → ${t.coverTo} 桌`:""}${t.movedCovers?`<br>帳上 ${t.movedCovers} 份改移給 ${t.coverTo} 桌`:""}${t.coverFrom?`<br>加餐 ${t.coverNeed||Math.max(0,t.seats-10)} 份，餐具由 ${t.coverFrom} 桌調配`:""}${(()=>{const kept=ns.filter(n=>!n).length-(t.spareCovers||0); return kept>0&&t.id!=="10"?`<br>另 ${kept} 席空位保留，不移餐`:"";})()}${t.id==="10"?"<br>整桌預備，不列入移餐額度":""}${childNote(t)?"<br>"+childNote(t)+"，兒童餐另洽飯店":""}</div>
     ${dietNoteHtml(ns)}
     ${ns.map((n,i)=>`<div class="seat"><span class="n ${dietClass(n,i,t,ns)}">${i+1}</span><span class="${n?"":"empty"}">${displayName(n)||(isSpare(t,ns,i+1)?"空位（移餐）":t.id==="10"?"空位（預備）":"空位")}</span></div>`).join("")}
   `;
@@ -282,7 +282,7 @@ function roster(){
     const veg = diets.filter(d=>d.kind==="veg").length;
     const beef = diets.filter(d=>d.kind==="beef").length;
     const childNames = (t.childSeats||[]).filter(n => n && n !== "兒童座椅");
-    const pills = (beef?`<span class="pill beef">不吃牛 ${beef}</span>`:"")+(veg?`<span class="pill veg">素食 ${veg}</span>`:"")+(t.spareCovers?`<span class="pill spare">移餐 ${t.spareCovers} → ${t.coverTo} 桌</span>`:"")+(t.coverFrom?`<span class="pill spare">加椅 · 餐自 ${t.coverFrom} 桌</span>`:"")+(t.childSeats&&t.childSeats.length?`<span class="pill child">兒童座椅 ${t.childSeats.length}${childNames.length?" · "+childNames.join("、"):""}</span>`:"");
+    const pills = (beef?`<span class="pill beef">不吃牛 ${beef}</span>`:"")+(veg?`<span class="pill veg">素食 ${veg}</span>`:"")+(t.spareCovers?`<span class="pill spare">移餐 ${t.spareCovers} → ${t.coverTo} 桌</span>`:"")+(t.movedCovers?`<span class="pill spare">改移 ${t.movedCovers} → ${t.coverTo} 桌</span>`:"")+(t.coverFrom?`<span class="pill spare">加餐 ${t.coverNeed||Math.max(0,t.seats-10)} · 餐自 ${t.coverFrom} 桌</span>`:"")+(t.childSeats&&t.childSeats.length?`<span class="pill child">兒童座椅 ${t.childSeats.length}${childNames.length?" · "+childNames.join("、"):""}</span>`:"");
     return `<article class="card" data-id="${id}">
       <h3>${id==="head"?"主桌":t.label+" 桌"} <small style="font-weight:400;color:#b45309">${filled}/${t.seats}</small></h3>
       <div class="muted">${t.title}${pills?"<br>"+pills:""}</div>
@@ -307,7 +307,7 @@ function kitchen(){
   }
   document.getElementById("kitchen").innerHTML = `<h2>給廚房的改菜摘要</h2>
     <p class="muted">不吃牛 ${beef} 人：拼盤牛腱自行不取；位上小牛肋排需改 ${beef} 份。素食 ${veg} 人：請出整套素食位上。</p>
-    <p class="muted">加椅（不另收費）：1、2 桌各餐自 5 桌 1 位；13 桌餐自 9 桌；14 桌餐自 8 桌；17 桌餐自 15 桌。對照表另註：5 桌移至 1、2 桌各 1 位；7 桌移至 8、14 桌；9 桌移至 13 桌 2 位（13 桌大人椅只加 1）。6 桌 9 席、11 桌空 2、10 桌預備，不列入移餐。</p>
+    <p class="muted">加餐額度足夠。青點：5 桌 2 席給 1、2 桌；9 桌 1 席給 13 桌；15 桌 1 席給 16 桌；11 桌 2 席與 6 桌 1 席給 19 桌。還沒用的空額共 3 席：6 桌 2、9 桌 1，不上色。10 桌預備不計。14 桌加 1 席寫餐自 8 桌，8 桌已坐滿。</p>
     <p class="muted">兒童座椅（不佔主位）：1 桌 2、3 桌吳尹泰、13 桌 1、14 桌 1，兒童餐另洽飯店。不吃牛 11 位、素食 1 位（張厚齊）。</p>
     <ul>${rows.join("")}</ul>`;
 }
