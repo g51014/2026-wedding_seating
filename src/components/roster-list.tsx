@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { SeatNumber } from "@/components/seat-number"
 import { displayGuestName } from "@/data/guests"
 import { dietCounts } from "@/data/menu"
-import { TABLE_ORDER, isSpareCoverSeat, tableById } from "@/data/venue"
+import { TABLE_ORDER, extraChairCount, isSpareCoverSeat, tableById } from "@/data/venue"
 import type { GuestMap } from "@/lib/seating"
 
 type RosterProps = {
@@ -41,9 +41,14 @@ export function RosterList({ guests, onSelect }: RosterProps) {
                     移餐 {table.spareCovers} → {table.coverTo} 桌
                   </Badge>
                 ) : null}
+                {table.movedCovers ? (
+                  <Badge className="bg-cyan-700 font-normal text-white">
+                    改移 {table.movedCovers} → {table.coverTo} 桌
+                  </Badge>
+                ) : null}
                 {table.coverFrom ? (
                   <Badge variant="outline" className="font-normal text-[#0e7490]">
-                    加椅 · 餐自 {table.coverFrom} 桌
+                    加餐 {table.coverNeed ?? extraChairCount(table)} · 餐自 {table.coverFrom} 桌
                   </Badge>
                 ) : null}
                 {table.childSeats?.length ? (

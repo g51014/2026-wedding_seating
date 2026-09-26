@@ -33,9 +33,19 @@ export function TableDetail({ tableId, guests, onChange }: TableDetailProps) {
             本桌空 {table.spareCovers} 席列為移餐額度：餐具移給 {table.coverTo} 桌加椅，不另收費。
           </p>
         ) : null}
+        {table.movedCovers && table.coverTo ? (
+          <p className="mt-1 text-xs text-cyan-800">
+            帳上 {table.movedCovers} 份改移給 {table.coverTo} 桌（17 桌加椅取消後退回），不另收費。
+          </p>
+        ) : null}
         {table.coverFrom ? (
           <p className="mt-1 text-xs text-cyan-800">
-            超額 {extraChairCount(table)} 席：餐具由 {table.coverFrom} 桌空位調配。
+            加餐 {table.coverNeed ?? extraChairCount(table)} 份：餐具由 {table.coverFrom} 桌調配，不另收費。
+          </p>
+        ) : null}
+        {guests.filter((name) => !name).length - (table.spareCovers ?? 0) > 0 && table.id !== "10" ? (
+          <p className="mt-1 text-xs text-[#92400e]">
+            另 {guests.filter((name) => !name).length - (table.spareCovers ?? 0)} 席空位保留，不移餐。
           </p>
         ) : null}
         {table.id === "10" ? (
