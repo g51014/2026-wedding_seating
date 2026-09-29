@@ -5,7 +5,7 @@ import { useCallback, useSyncExternalStore } from "react"
 import { defaultGuests } from "@/data/guests"
 import { emptyGuests, TABLE_ORDER, tableById, TABLES } from "@/data/venue"
 
-const STORAGE_KEY = "awu-wedding-seating-v42"
+const STORAGE_KEY = "awu-wedding-seating-v43"
 const listeners = new Set<() => void>()
 const defaultSnapshot = defaultGuests()
 let memory: GuestMap | null = null

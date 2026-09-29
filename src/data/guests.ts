@@ -180,7 +180,6 @@ export const BRIDE_GUESTS: Record<string, string[]> = {
   ],
   "2": [
     "Gino",
-    "Shirley",
     "Tric",
     "Zmic",
     "宋玉琨／Lauren",

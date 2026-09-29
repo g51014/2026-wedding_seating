@@ -70,7 +70,7 @@ export function WeddingApp() {
               2026-10-04 William & Jill 婚宴桌次安排
             </h1>
             <p className="mt-1 max-w-xl text-sm text-[#92400e]">
-              加餐額度足夠。青點：5 桌 2 席給 1、2 桌，9 桌 1 席給 13 桌，15 桌 1 席給 16 桌，11 桌 2 席與 6 桌 1 席給 19 桌。還沒用的空額共 3 席：6 桌 2、9 桌 1，不上色。紅點為 1 號位，順時針。
+              加餐額度足夠。青點：5 桌 1 席給 1 桌，另 1 空額不標色，9 桌 1 席給 13 桌，15 桌 1 席給 16 桌，11 桌 2 席與 6 桌 1 席給 19 桌。還沒用的空額共 4 席：5 桌 1、6 桌 2、9 桌 1，不上色。紅點為 1 號位，順時針。
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -207,7 +207,7 @@ export function WeddingApp() {
 
           <TabsContent value="roster" className="print:hidden">
             <div className="mb-4 rounded-xl border border-amber-200 bg-[#fffaf3] p-4 text-sm leading-relaxed text-[#7c2d12]">
-              加餐額度足夠。青點都畫在 10 席裡的空位：5 桌 2 席給 1、2 桌，9 桌 1 席給 13 桌，15 桌 1 席給 16 桌，11 桌 2 席與 6 桌 1 席給 19 桌。還沒用的空額共 3 席：6 桌 2、9 桌 1，不上色。10 桌預備不計。14 桌加的 1 席寫餐自 8 桌，8 桌已坐滿，沒有青點。
+              加餐額度足夠。青點都畫在 10 席裡的空位：5 桌 1 席給 1 桌，另 1 空額不標色，9 桌 1 席給 13 桌，15 桌 1 席給 16 桌，11 桌 2 席與 6 桌 1 席給 19 桌。還沒用的空額共 4 席：5 桌 1、6 桌 2、9 桌 1，不上色。10 桌預備不計。14 桌加的 1 席寫餐自 8 桌，8 桌已坐滿，沒有青點。
             </div>
             <RosterList
               guests={guests}
